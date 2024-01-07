@@ -2,6 +2,7 @@
 namespace App;
 class Route{
     public $routes = [];
+   
 
     private function addRoute($method, $route, $controller, $action) {
         $this->routes[$method][$route] = ['controller' => $controller, 'action' => $action];

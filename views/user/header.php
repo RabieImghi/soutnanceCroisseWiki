@@ -27,8 +27,8 @@
                 </div>
                 <nav>
                     <ul class="nav">
-                        <li><a href="<?=$_ENV['APP_URL']."/"?>" class="nav-link ml-1 px-2 link-bleuFa active">Home</a></li>
-                        <li><a href="<?=$_ENV['APP_URL']."/items"?>" class="nav-link ml-1 px-2 link-bleuFa">All Items</a></li>
+                        <li><a href="<?=$_ENV['APP_URL']."/"?>" class="nav-link ml-1 px-2 link-bleuFa <?php if(isset($index))echo "active"; ?>">Home</a></li>
+                        <li><a href="<?=$_ENV['APP_URL']."/items?id=2"?>" class="nav-link ml-1 px-2 link-bleuFa <?php if(isset($items))echo "active"; ?>">All Items</a></li>
                         <li><a href="#" class="nav-link ml-1 px-2 link-bleuFa">Services</a></li>
                         <li><a href="#" class="nav-link ml-1 px-2 link-bleuFa">FAQs</a></li>
                         <li><a href="#" class="nav-link ml-1 px-2 link-bleuFa">About</a></li>
@@ -40,11 +40,20 @@
                             <img src="assets/user/assets/img/user.jpg" alt="mdo" width="32" height="32" class="rounded-circle">
                         </a>
                         <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-                            <li><a class="dropdown-item" href="#">New project...</a></li>
-                            <li><a class="dropdown-item" href="#">Settings</a></li>
                             <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li><a class="dropdown-item" href="#">Settings</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Sign out</a></li>
+                            <?php
+                            if(isset($_SESSION['id_user'])){
+                                ?>
+                                <li><a class="dropdown-item" href="#">Sign out</a></li>
+                                <?php
+                            }else{
+                                ?>
+                                <li><a class="dropdown-item" href="<?=$_ENV['APP_URL']."/login"?>">Login</a></li>
+                                <?php
+                            }
+                            ?>
                         </ul>
                     </div>
                 </div>

@@ -1,4 +1,5 @@
 <?php
+$items='ok';
 ob_start();
 ?>
     <div class="filter d-flex gap-4 w-50 mt-2 mb-3">

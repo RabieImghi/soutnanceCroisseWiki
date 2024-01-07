@@ -1,4 +1,5 @@
 <?php
+$index="ok";
 ob_start();
 ?>
     <section class="hero d-flex align-items-center justify-content-around">
