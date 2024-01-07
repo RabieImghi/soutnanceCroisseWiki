@@ -46,7 +46,7 @@
                             <?php
                             if(isset($_SESSION['id_user'])){
                                 ?>
-                                <li><a class="dropdown-item" href="#">Sign out</a></li>
+                                <li><a class="dropdown-item" href="<?=$_ENV['APP_URL']."/logout"?>">Sign out</a></li>
                                 <?php
                             }else{
                                 ?>

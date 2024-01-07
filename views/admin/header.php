@@ -40,7 +40,7 @@
                             <?php
                             if(isset($_SESSION['id_user'])){
                                 ?>
-                                <li><a class="dropdown-item" href="#">Sign out</a></li>
+                                <li><a class="dropdown-item" href="<?=$_ENV['APP_URL']."/logout"?>">Sign out</a></li>
                                 <?php
                             }else{
                                 ?>
@@ -58,7 +58,6 @@
         <aside id="asideBar" class=" p-2 ml-2">
             <div class="nav flex-column" >
                 <?php  
-                $_SESSION['role_user']="admin";
                 if($_SESSION['role_user']=="admin"){
                 ?>
                 <a href="<?=$_ENV['APP_URL']."/"?>"  class="nav-link rounded-1 fw-bold mt-2 p-3 active" >

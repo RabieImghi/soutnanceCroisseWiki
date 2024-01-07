@@ -7,7 +7,7 @@ Class User{
     private $email;
     private $role;
 
-    public function __construct($username, $password, $email, $role){
+    public function __construct($username,  $email, $password, $role){
         $this->username = $username;
         $this->password = $password;
         $this->email = $email;
@@ -26,7 +26,10 @@ Class User{
             return true;
         }
     }
-    public static function login(){
-        
+    public static function login($email,$password){
+        $db = Database::getConnection();
+        $stmtSearch=$db->prepare("SELECT * FROM users WHERE email=? AND password=?");
+        $stmtSearch->execute([$email,$password]);
+        return $stmtSearch->fetchAll(\PDO::FETCH_ASSOC);
     }
 }

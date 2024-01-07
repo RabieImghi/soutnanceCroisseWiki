@@ -19,12 +19,12 @@
         <div class="cardForm shadow p-5 m-3 ">
             <h3 class="blueColor text-center">Login to Your Account</h3>
             <p class="text-center text-secondary">Enter your email & password to login</p>
-            <form action="" class="d-flex flex-column justify-content-between gap-4">
+            <form action="<?=$_ENV['APP_URL']."/"?>" method="post" class="d-flex flex-column justify-content-between gap-4">
                 <label class="text-secondary">Your Email 
-                    <input type="email" name="" id="" placeholder="Your Email ..." class="form-control mt-1">
+                    <input type="email" name="email" id="" placeholder="Your Email ..." class="form-control mt-1">
                 </label>
                 <label class="text-secondary">Your Password 
-                    <input type="password" name="" id=""  class="form-control mt-1">
+                    <input type="password" name="password" id=""  class="form-control mt-1">
                 </label>
                 <label class="text-secondary">
                     <input type="checkbox" class="form-check-input"> Remember me
