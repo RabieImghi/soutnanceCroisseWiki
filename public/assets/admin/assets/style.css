@@ -2,6 +2,8 @@ body{
     background-color: rgb(243, 249, 255) !important;
 }
 header{
+    position: sticky !important;;
+    top: 0 !important;;
     height: 80px !important;
 }
 header, aside{

@@ -14,21 +14,21 @@ ob_start();
               <h2>Add New Item</h2>
             </div>
             <div class="modal-body">
-                <form method="Post">
-                    <input type="text" class="form-control mt-3" placeholder="Item Name">
+                <form method="Post" action="<?=$_ENV['APP_URL']."/"?>">
+                    <input type="text" name="title" class="form-control mt-3" placeholder="Item Name">
 
-                    <input type="text" class="form-control mt-3" placeholder="Item Content">
+                    <input type="text" name="content" class="form-control mt-3" placeholder="Item Content">
 
-                    <select name="" id="" class="form-control mt-3">
+                    <select name="category" id="" class="form-control mt-3">
                       <option value="null" disabled selected>choose category</option>
                       <option value="1">cat 1</option>
-                      <option value="1">cat 2</option>
-                      <option value="1">cat 3</option>
+                      <option value="2">cat 2</option>
+                      <option value="3">cat 3</option>
                     </select>
 
                     <div class="mt-3">
                       <span style="margin-left: 5px;">Choose Your Tags : </span><br><br>
-                      <select class="form-control" id="multiple-select-clear-field" data-placeholder="Choose Your Tages" multiple>
+                      <select class="form-control" id="multiple-select-clear-field" name="Tags[]" data-placeholder="Choose Your Tages" multiple>
                         <option value="1">Christmas Island</option>
                         <option value="3">South Sudan</option>
                         <option value="2">Jamaica</option>

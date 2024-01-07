@@ -19,6 +19,7 @@ $router->post($url."/login", AuthController::class,"RegistreUser");
 $router->get($url."/logout", AuthController::class,"logoutUser");
 // user router
 $router->get($url."/items", HomeController::class,"UserItems");
+$router->get($url."/userItems", HomeController::class,"userItemsAdmin");
 
 // admin router 
 $router->get($url."/AdminItems", ItemsController::class,"getItems");

@@ -14,4 +14,7 @@ Class HomeController{
     public function UserItems(){
         Controller::render("user/allItems");
     }
+    public function userItemsAdmin(){
+        Controller::render("admin/itemAuthor");
+    }
 }
