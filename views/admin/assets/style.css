@@ -10,6 +10,7 @@ header, aside{
 aside{
     width: 250px !important;
     box-shadow: 2px 1px 30px rgba(211, 211, 211, 0.39);
+    min-height: 80vh;
 }
 section {
     width: 100% !important;
@@ -22,9 +23,6 @@ section {
 }
 .togl_menu{
     margin-left: 80px;
-}
-aside{
-    min-height: 80vh;
 }
 .ml-2{
     margin-left: 20px;
