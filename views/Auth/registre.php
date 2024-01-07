@@ -19,18 +19,18 @@
         <div class="cardForm shadow p-5 m-3 ">
             <h3 class="blueColor text-center">Create an Account</h3>
             <p class="text-center text-secondary">Enter your personal details to create account</p>
-            <form action="" class="d-flex flex-column justify-content-between gap-4">
+            <form action="<?=$_ENV['APP_URL']."/login"?>" method="post" class="d-flex flex-column justify-content-between gap-4">
                 <label class="text-secondary">Your Name 
-                    <input type="email" name="" id="" placeholder="Your Name ..." class="form-control mt-1">
+                    <input required type="text" name="username" id="" placeholder="Your Name ..." class="form-control mt-1">
                 </label>
                 <label class="text-secondary">Your Email 
-                    <input type="email" name="" id="" placeholder="Your Email ..." class="form-control mt-1">
+                    <input required type="email" name="email" id="" placeholder="Your Email ..." class="form-control mt-1">
                 </label>
                 <label class="text-secondary">Your Password 
-                    <input type="password" name="" id=""  class="form-control mt-1">
+                    <input required type="password" name="password" id=""  class="form-control mt-1">
                 </label>
                 <label class="text-secondary">
-                    <input type="checkbox" class="form-check-input" > I agree and accept the <a  href="#" class="blueColor no-underline">terms and conditions</a> 
+                    <input required type="checkbox" class="form-check-input" > I agree and accept the <a  href="#" class="blueColor no-underline">terms and conditions</a> 
                 </label>
                 <button class="btn btn-primary">Create Account</button>
                 <p class="text-secondary">Already have an account? <a href="<?=$_ENV['APP_URL']."/login"?>" class="blueColor no-underline"> Log in</a></p>
