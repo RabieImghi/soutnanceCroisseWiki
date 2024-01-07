@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
-    <link href="assets/img/favicon.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-    <link rel="stylesheet" href="assets/style.css">
+    <link href="assets/admin/assets/img/favicon.png" rel="icon">
+    <link href="assets/admin/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link rel="stylesheet" href="assets/admin/assets/style.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.3.1/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
@@ -17,7 +17,7 @@
             <div class="d-flex align-items-center justify-content-between ">
                 <div class="d-flex gap-4 align-items-center ">
                     <div class="logo cursor-pointer ">
-                        <img src="assets/img/logo.png" width="120px" alt="">
+                        <img src="assets/admin/assets/img/logo.png" width="120px" alt="">
                     </div>
                     <div class="togl_menu cursor-pointer" id="togl_menu">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
@@ -31,7 +31,7 @@
                     </div>
                     <div class="dropdown text-end">
                         <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="assets/img/user.jpg" alt="mdo" width="32" height="32" class="rounded-circle">
+                            <img src="assets/admin/assets/img/user.jpg" alt="mdo" width="32" height="32" class="rounded-circle">
                         </a>
                         <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
                             <li><a class="dropdown-item" href="#">New project...</a></li>
@@ -184,7 +184,7 @@
             </div>
         </section>
     </main>
-   <script src="assets/script.js"></script>
+   <script src="assets/admin/assets/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

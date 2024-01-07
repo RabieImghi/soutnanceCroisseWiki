@@ -4,17 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
-    <link href="assets/img/favicon.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-    <link rel="stylesheet" href="assets/style.css">
+    <link href="assets/admin/assets/img/favicon.png" rel="icon">
+    <link href="assets/admin/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link rel="stylesheet" href="assets/admin/assets/style.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.3.1/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
-
   </head>
   <body>
     <header class="p-3 mb-3 border-bottom">
@@ -22,7 +17,7 @@
             <div class="d-flex align-items-center justify-content-between ">
                 <div class="d-flex gap-4 align-items-center ">
                     <div class="logo cursor-pointer ">
-                      <img src="assets/img/logo.png" width="120px" alt="">
+                      <img src="assets/admin/assets/img/logo.png" width="120px" alt="">
                     </div>
                     <div class="togl_menu cursor-pointer" id="togl_menu">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
@@ -36,7 +31,7 @@
                     </div>
                     <div class="dropdown text-end">
                         <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="assets/img/user.jpg" alt="mdo" width="32" height="32" class="rounded-circle">
+                            <img src="assets/admin/assets/img/user.jpg" alt="mdo" width="32" height="32" class="rounded-circle">
                         </a>
                         <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
                             <li><a class="dropdown-item" href="#">New project...</a></li>
@@ -59,13 +54,13 @@
                     </svg>
                     <span class="ml-2">Dashboard</span>
                 </a><hr>
-                <a href="item.html"  class="nav-link rounded-1 fw-bold mt-2 p-3 "  >
+                <a href="item.html"  class="nav-link rounded-1 fw-bold mt-2 p-3"  >
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-view-list" viewBox="0 0 16 16">
                         <path d="M3 4.5h10a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2m0 1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1zM1 2a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 2m0 12a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 14"/>
                     </svg>
                     <span class="ml-2">Items List</span>
                 </a><hr>
-                <a href="tags.html"  class="nav-link rounded-1 fw-bold mt-2 p-3"  >
+                <a href="tags.html"  class="nav-link rounded-1 fw-bold mt-2 p-3 active"  >
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tags" viewBox="0 0 16 16">
                         <path d="M3 2v4.586l7 7L14.586 9l-7-7zM2 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 2 6.586z"/>
                         <path d="M5.5 5a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1m0 1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3M1 7.086a1 1 0 0 0 .293.707L8.75 15.25l-.043.043a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 0 7.586V3a1 1 0 0 1 1-1z"/>
@@ -78,7 +73,7 @@
                     </svg>
                     <span class="ml-2">Category List</span>
                 </a><hr>
-                <a href="itemAuthor.html"  class="nav-link rounded-1 fw-bold mt-2 p-3 active"  >
+                <a href="itemAuthor.html"  class="nav-link rounded-1 fw-bold mt-2 p-3"  >
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-view-list" viewBox="0 0 16 16">
                         <path d="M3 4.5h10a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2m0 1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1zM1 2a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 2m0 12a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 14"/>
                     </svg>
@@ -88,43 +83,23 @@
         </aside>
         <section class=" ml-2 ">
           <div class="headerSection">
-              <h2>Items Authors</h2>
-              <span><span>Home</span> / Items Authors</span>
+              <h2>Tags</h2>
+              <span><span>Home</span> / Tags</span>
           </div>
           <div class="modalAddCatgory mt-3 mb-3">
-              <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#addCategory">Add New Item</button>
+              <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#addCategory">Add New Tag</button>
               <div class="modal fade" id="addCategory" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog modal-lg modal-dialog-centered">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h2>Add New Item</h2>
+                        <h2>Add New Tag</h2>
                       </div>
                       <div class="modal-body">
-                          <form method="Post">
-                              <input type="text" class="form-control mt-3" placeholder="Item Name">
-
-                              <input type="text" class="form-control mt-3" placeholder="Item Content">
-
-                              <select name="" id="" class="form-control mt-3">
-                                <option value="null" disabled selected>choose category</option>
-                                <option value="1">cat 1</option>
-                                <option value="1">cat 2</option>
-                                <option value="1">cat 3</option>
-                              </select>
-
-                              <div class="mt-3">
-                                <span style="margin-left: 5px;">Choose Your Tags : </span><br><br>
-                                <select class="form-control" id="multiple-select-clear-field" data-placeholder="Choose Your Tages" multiple>
-                                  <option value="1">Christmas Island</option>
-                                  <option value="3">South Sudan</option>
-                                  <option value="2">Jamaica</option>
-                                  <option value="4">Kenya</option>
-                                </select>
-                              </div>
-                              <input type="file" class="form-control mt-3" accept=".jpg, .png, .jpeg">
-
+                          <form action="">
+                              <input type="text" class="form-control mt-3" placeholder="Tag Name">
+                              <textarea name="" id="" class="form-control  mt-3" rows="6"  placeholder="Tag Description"></textarea>
                               <div class="button mt-3 mb-3 d-flex gap-2 justify-content-end">
-                                  <button type="submit" class="btn btn-outline-success">Add</button>
+                                  <button type="button" class="btn btn-outline-success">Add</button>
                                   <button type="reset"  data-bs-dismiss="modal" class="btn btn-outline-dark">Close</button>
                               </div>
                           </form>
@@ -133,52 +108,37 @@
                   </div>
               </div>
           </div>
-          <table class="mt-3 table align-middle mb-0 bg-white">
+          <table class="table align-middle mb-0 bg-white">
               <thead class="bg-light">
                 <tr>
-                  <th>Items Name </th>
-                  <th>Items Content </th>
-                  <th>User Name</th>
-                  <th>Category Name</th>
+                  <th>Tag Names</th>
+                  <th>Description</th>
                   <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>
-                    <div class="d-flex align-items-center">
-                      <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt=""  style="width: 45px; height: 45px" class="rounded-circle"/>
-                      <p class="fw-bold mb-1 ms-3">Items 1</p>
-                    </div>
-                  </td>
-                  <td>
-                    <p class="fw-normal mb-1">Items Content</p>
-                  </td>
-                  <td>
-                    <p class="fw-normal mb-1">RabieImghi</p>
-                  </td>
-                  <td>
                     <p class="fw-normal mb-1">Php</p>
+                  </td>
+                  <td>
+                    <p class="fw-normal mb-1">Langage de programation</p>
                   </td>
                   <td >
                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="cursor-pointer bi bi-pencil-square" viewBox="0 0 16 16">
                       <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                       <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
                     </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="cursor-pointer bi bi-trash3 ml-2" viewBox="0 0 16 16">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="ml-2 cursor-pointer bi bi-trash3" viewBox="0 0 16 16">
                       <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>
                     </svg>
                   </td>
                 </tr>
-                
               </tbody>
           </table>
         </section>
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.0/dist/jquery.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.full.min.js"></script>
-    <script src="assets/script.js"></script>
+   <script src="assets/admin/assets/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
