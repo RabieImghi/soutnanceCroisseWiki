@@ -30,4 +30,10 @@ Class Item{
         $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
         return $result;
     }
+    public static function deletItem($id){
+        $db = Database::getConnection();
+        $stmt=$db->prepare("DELETE FROM wikis  WHERE wikiID=?");
+        $stmt->execute([$id]);
+        return true;
+    }
 }

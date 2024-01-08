@@ -16,3 +16,4 @@ $( '#multiple-select-clear-field' ).select2( {
     closeOnSelect: false,
     allowClear: true,
 } );
+

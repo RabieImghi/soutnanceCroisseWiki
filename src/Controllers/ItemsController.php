@@ -23,4 +23,15 @@ Class ItemsController{
         $views = new HomeController();
         $views->userItemsAdmin();
     }
+    public function deletItemUser(){
+        $data = explode("=",$_SESSION['data']);
+        $res= Item::deletItem($data[1]);
+        if($res){
+            $data['items']=Item::getAllItem();
+            foreach ($data['items'] as $item){
+                $data['wikis'][]=WikiTags::getWikisTags($item['wikiID']);
+            }
+            Controller::render("admin/deletView", $data);
+        }
+    }
 }
