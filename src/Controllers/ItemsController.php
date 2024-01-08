@@ -12,14 +12,17 @@ Class ItemsController{
     public function addNewItem(){
         extract($_POST);
         $userID=$_SESSION['id_user'];
-        $targetDir = "assets/uploads/"; 
-        $imageName=date("Y_m_d_H_i_s"). basename($_FILES["photo"]["name"]);
-        $targetFile = $targetDir.$imageName;
-        if (move_uploaded_file($_FILES["photo"]["tmp_name"], $targetFile)) {
-            $item = new Item($title,$content,$userID,$category,$imageName);
+        if($_FILES["photo"]['name']!=''){
+            $targetDir = "assets/uploads/"; 
+            $imageName=date("Y_m_d_H_i_s"). basename($_FILES["photo"]["name"]);
+            $targetFile = $targetDir.$imageName;
+            move_uploaded_file($_FILES["photo"]["tmp_name"], $targetFile);
+        }else{
+            $imageName='deafult.jpeg';
+        }
+        $item = new Item($title,$content,$userID,$category,$imageName);
             $idItems=$item->addNewItem();
-            if(isset($tags))
-            if(count($Tags)>0){
+            if(!empty($Tags) && count($Tags)>0){
                 for($i= 0;$i<count($Tags);$i++){   
                     $tagWiki = new WikiTags($idItems,$Tags[$i]);
                     $tagWiki->addWikiTags();
@@ -27,12 +30,16 @@ Class ItemsController{
             }
             $views = new HomeController();
             $views->userItemsAdmin();
-        } 
     }
     public function deletItemUser(){
-        $data = explode("=",$_SESSION['data']);
-        $res= Item::deletItem($data[1]);
+        $id = $_GET["id"];
+        $urlimage = $_GET["url"];
+        $res= Item::deletItem($id);
         if($res){
+            $imagePath = 'assets/uploads/'.$urlimage;
+            if (file_exists($imagePath) && $urlimage != "deafult.jpeg") {
+                unlink($imagePath);
+            } 
             $data['items']=Item::getAllItemUser();
             foreach ($data['items'] as $item){
                 $data['wikis'][]=WikiTags::getWikisTags($item['wikiID']);

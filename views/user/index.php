@@ -54,7 +54,13 @@ ob_start();
                 <div class="textHero col-6 p-4">
                     <h1 class=""><span><?=$items[$i]["title"]?></span></h1>
                     <p class="fw-bold"> Category : <span class="blueColor"><?=$items[$i]["nameC"]?></span></p>
-                    <p class="fw-bold">Tages : <span class="blueColor">Tages1 Tags 2</span></p>
+                    <p class="fw-bold">Tages : <span class="blueColor">
+                    <?php 
+                        for($j=0;$j<count($wikis[$i]);$j++){
+                            echo "<button class='btn butt btn-primary ' style='height:30px; !important; padding:0 10px  '>".$wikis[$i][$j]['nameT']."</button>  ";
+                        }
+                        ?>
+                    </span></p>
                     <p><?=$items[$i]["content"]?></p>
                     <a href="#" class="btn butt btn-primary mt-2">More Details </a>
                 </div>
@@ -64,7 +70,13 @@ ob_start();
                 <div class="textHero col-6 p-4">
                     <h1 class=""><span><?=$items[$i]["title"]?></span></h1>
                     <p class="fw-bold"> Category : <span class="blueColor"><?=$items[$i]["nameC"]?></span></p>
-                    <p class="fw-bold">Tages : <span class="blueColor">Tages1 Tags 2</span></p>
+                    <p class="fw-bold">Tages : <span class="blueColor">
+                        <?php 
+                        for($j=0;$j<count($wikis[$i]);$j++){
+                            echo "<button class='btn butt btn-primary ' style='height:30px; !important; padding:0 10px  '>".$wikis[$i][$j]['nameT']."</button>  ";
+                        }
+                        ?>
+                    </span></p>
                     <p><?=$items[$i]["content"]?></p>
                     <a href="#" class="btn butt btn-primary mt-2">More Details </a>
                 </div>
