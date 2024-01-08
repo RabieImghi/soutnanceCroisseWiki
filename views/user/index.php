@@ -57,7 +57,7 @@ ob_start();
                     <p class="fw-bold">Tages : <span class="blueColor">
                     <?php 
                         for($j=0;$j<count($wikis[$i]);$j++){
-                            echo "<button class='btn butt btn-primary ' style='height:30px; !important; padding:0 10px  '>".$wikis[$i][$j]['nameT']."</button>  ";
+                            echo $wikis[$i][$j]['nameT']."/ ";
                         }
                         ?>
                     </span></p>
@@ -73,7 +73,7 @@ ob_start();
                     <p class="fw-bold">Tages : <span class="blueColor">
                         <?php 
                         for($j=0;$j<count($wikis[$i]);$j++){
-                            echo "<button class='btn butt btn-primary ' style='height:30px; !important; padding:0 10px  '>".$wikis[$i][$j]['nameT']."</button>  ";
+                            echo $wikis[$i][$j]['nameT']."/ ";
                         }
                         ?>
                     </span></p>
@@ -93,34 +93,17 @@ ob_start();
     </section>
     <h1 class="mb-3 mt-5 ml-2 fw-bold titleSection">Last 4 Category</h1><hr>
     <section class="services p-4 d-flex flex-wrap gap-4 justify-content-between align-items-center">
+        <?php 
+        foreach($categorys as $category):
+        ?>
         <div class="card shadow" style="width: 18rem;">
             <img src="assets/user/assets/img/category.png" class="card-img-top" alt="...">
             <div class="card-body d-flex flex-column align-items-center">
-                <h5 class="fw-bold card-title"><span>Cat : </span> Category 1</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <h5 class="fw-bold card-title"><span>Cat : </span> <?=$category['nameC']?></h5>
+                <p class="card-text"><?=$category['descr']?></p>
             </div>
         </div>
-        <div class="card shadow" style="width: 18rem;">
-            <img src="assets/user/assets/img/category.png" class="card-img-top" alt="...">
-            <div class="card-body d-flex flex-column align-items-center">
-                <h5 class="fw-bold card-title"><span>Cat : </span> Category 2</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-        </div>
-        <div class="card shadow" style="width: 18rem;">
-            <img src="assets/user/assets/img/category.png" class="card-img-top" alt="...">
-            <div class="card-body d-flex flex-column align-items-center">
-                <h5 class="fw-bold card-title"><span>Cat : </span> Category 3</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-        </div>
-        <div class="card shadow" style="width: 18rem;">
-            <img src="assets/user/assets/img/category.png" class="card-img-top" alt="...">
-            <div class="card-body d-flex flex-column align-items-center">
-                <h5 class="fw-bold card-title"><span>Cat : </span> Category 4</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-        </div>
+        <?php endforeach; ?>
     </section>
     <section class="Contact shadow mt-5 p-2 mb-3 d-flex  gap-5 p-4">
         <div class="ratio ratio-16x9">

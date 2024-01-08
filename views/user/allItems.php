@@ -13,42 +13,55 @@ ob_start();
         <input type="search" name="search" id="search" class="form-control" placeholder="Search...">
     </div>
     <section class="LasWikis">
-        <div class="wikis row mb-5 shadow">
-            <div class="image col-6">
-                <img src="assets/user/assets/img/WikiWorld.png" style="width: 50%;"  alt="">
-            </div>
-            <div class="textHero col-6 p-4">
-                <h1 class=""><span>Wiki</span>Title</h1>
-                <p class="fw-bold"> Category : <span class="blueColor">CategoryName</span></p>
-                <p class="fw-bold">Tages : <span class="blueColor">Tages1 Tags 2</span></p>
-                <p>make a place where everyone can work together, <br> create, find and share wikis in an easy and interesting way.</p>
-                <a href="#" class="btn butt btn-primary mt-2">More Details </a>
-            </div>
+        <?php 
+        for($i=0;$i<count($items);$i++){
+        ?>
+        <div class="wikis row mb-3 shadow">
+            <?php
+            if($i%2== 0){
+                ?>
+                <div class="image col-6" style='height:360px !important; overflow:hidden'>
+                    <img src="assets/uploads/<?=$items[$i]["urlImage"]?>" style="height: 360px"  alt="">
+                </div>
+                <div class="textHero col-6 p-4">
+                    <h1 class=""><span><?=$items[$i]["title"]?></span></h1>
+                    <p class="fw-bold"> Category : <span class="blueColor"><?=$items[$i]["nameC"]?></span></p>
+                    <p class="fw-bold">Tages : <span class="blueColor">
+                    <?php 
+                        for($j=0;$j<count($wikis[$i]);$j++){
+                            echo $wikis[$i][$j]['nameT']."/ ";
+                        }
+                        ?>
+                    </span></p>
+                    <p><?=$items[$i]["content"]?></p>
+                    <a href="#" class="btn butt btn-primary mt-2">More Details </a>
+                </div>
+                <?php
+            }else{
+                ?>
+                <div class="textHero col-6 p-4">
+                    <h1 class=""><span><?=$items[$i]["title"]?></span></h1>
+                    <p class="fw-bold"> Category : <span class="blueColor"><?=$items[$i]["nameC"]?></span></p>
+                    <p class="fw-bold">Tages : <span class="blueColor">
+                        <?php 
+                        for($j=0;$j<count($wikis[$i]);$j++){
+                            echo $wikis[$i][$j]['nameT']."/ ";
+                        }
+                        ?>
+                    </span></p>
+                    <p><?=$items[$i]["content"]?></p>
+                    <a href="#" class="btn butt btn-primary mt-2">More Details </a>
+                </div>
+                <div class="image col-6" style='height:360px !important; overflow:hidden'>
+                    <img src="assets/uploads/<?=$items[$i]["urlImage"]?>" style="height: 360px ;"  alt="">
+                </div>
+                <?php
+            }
+            ?>
         </div>
-        <div class="wikis row mb-5 shadow">
-            <div class="textHero col-6 p-4">
-                <h1 class=""><span>Wiki</span>Title</h1>
-                <p class="fw-bold"> Category : <span class="blueColor">CategoryName</span></p>
-                <p class="fw-bold">Tages : <span class="blueColor">Tages1 Tags 2</span></p>
-                <p>make a place where everyone can work together, <br> create, find and share wikis in an easy and interesting way.</p>
-                <a href="#" class="btn butt btn-primary mt-2">More Details </a>
-            </div>
-            <div class="image col-6">
-                <img src="assets/user/assets/img/WikiWorld.png" style="width: 50%;"  alt="">
-            </div>
-        </div>
-        <div class="wikis row mb-5 shadow">
-            <div class="image col-6">
-                <img src="assets/user/assets/img/WikiWorld.png" style="width: 50%;"  alt="">
-            </div>
-            <div class="textHero col-6 p-4">
-                <h1 class=""><span>Wiki</span>Title</h1>
-                <p class="fw-bold"> Category : <span class="blueColor">CategoryName</span></p>
-                <p class="fw-bold">Tages : <span class="blueColor">Tages1 Tags 2</span></p>
-                <p>make a place where everyone can work together, <br> create, find and share wikis in an easy and interesting way.</p>
-                <a href="#" class="btn butt btn-primary mt-2">More Details </a>
-            </div>
-        </div>
+        <?php 
+        }
+        ?>
     </section>
 <?php
 $content=ob_get_clean();
