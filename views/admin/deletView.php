@@ -5,7 +5,7 @@ for($i=0;$i<count($items);$i++){
 <tr>
 <td>
     <div class="d-flex align-items-center">
-    <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt=""  style="width: 45px; height: 45px" class="rounded-circle"/>
+    <img src="assets/uploads/<?=$items[$i]['urlImage']?>" alt=""  style="width: 45px; height: 45px" class="rounded-circle"/>
     <p class="fw-bold mb-1 ms-3"><?=$items[$i]['title']?></p>
     </div>
 </td>

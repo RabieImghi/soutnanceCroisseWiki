@@ -23,7 +23,7 @@ Class Item{
         $stmt->execute([$this->title,$this->content,$this->userID,$this->categoryID,$this->urlImage,$this->deletedAt]);
         return $db->lastInsertId();
     }
-    public static function getAllItem(){
+    public static function getAllItemUser(){
         $db = Database::getConnection();
         $stmt=$db->prepare("SELECT * FROM wikis NATURAL JOIN categories WHERE wikis.userID =?");
         $stmt->execute([$_SESSION['id_user']]);
@@ -35,5 +35,22 @@ Class Item{
         $stmt=$db->prepare("DELETE FROM wikis  WHERE wikiID=?");
         $stmt->execute([$id]);
         return true;
+    }
+    public static function getAllItem($nombre){
+        $db = Database::getConnection();
+        if($nombre=="n"){
+            $stmt=$db->prepare("SELECT * FROM wikis NATURAL JOIN categories");
+            $stmt->execute();
+            $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            return $result;
+        }else{
+            $stmt = $db->prepare("SELECT * FROM wikis NATURAL JOIN categories ORDER BY wikiID DESC LIMIT :limit");
+            $stmt->bindParam(':limit', $nombre,\PDO::PARAM_INT);
+            $stmt->execute();
+            $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            return $result;
+        }
+
+        
     }
 }

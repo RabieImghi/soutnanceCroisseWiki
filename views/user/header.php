@@ -28,7 +28,7 @@
                 <nav>
                     <ul class="nav">
                         <li><a href="<?=$_ENV['APP_URL']."/"?>" class="nav-link ml-1 px-2 link-bleuFa <?php if(isset($index))echo "active"; ?>">Home</a></li>
-                        <li><a href="<?=$_ENV['APP_URL']."/items?id=2"?>" class="nav-link ml-1 px-2 link-bleuFa <?php if(isset($items))echo "active"; ?>">All Items</a></li>
+                        <li><a href="<?=$_ENV['APP_URL']."/items?id=2"?>" class="nav-link ml-1 px-2 link-bleuFa <?php if(isset($itemsnav))echo "active"; ?>">All Items</a></li>
                         <li><a href="#" class="nav-link ml-1 px-2 link-bleuFa">Services</a></li>
                         <li><a href="#" class="nav-link ml-1 px-2 link-bleuFa">FAQs</a></li>
                         <li><a href="#" class="nav-link ml-1 px-2 link-bleuFa">About</a></li>

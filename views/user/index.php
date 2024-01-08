@@ -41,42 +41,43 @@ ob_start();
     </section>
     <h1 class="mb-3 mt-5 ml-2 fw-bold titleSection">Last 3 Wiks</h1><hr>
     <section class="LasWikis">
+        <?php 
+        for($i=0;$i<count($items);$i++){
+        ?>
         <div class="wikis row mb-3">
-            <div class="image col-6">
-                <img src="assets/user/assets/img/WikiWorld.png" style="width: 50%;"  alt="">
-            </div>
-            <div class="textHero col-6 p-4">
-                <h1 class=""><span>Wiki</span>Title</h1>
-                <p class="fw-bold"> Category : <span class="blueColor">CategoryName</span></p>
-                <p class="fw-bold">Tages : <span class="blueColor">Tages1 Tags 2</span></p>
-                <p>make a place where everyone can work together, <br> create, find and share wikis in an easy and interesting way.</p>
-                <a href="#" class="btn butt btn-primary mt-2">More Details </a>
-            </div>
+            <?php
+            if($i%2== 0){
+                ?>
+                <div class="image col-6" style='height:360px !important; overflow:hidden'>
+                    <img src="assets/uploads/<?=$items[$i]["urlImage"]?>" style="height: 360px"  alt="">
+                </div>
+                <div class="textHero col-6 p-4">
+                    <h1 class=""><span><?=$items[$i]["title"]?></span></h1>
+                    <p class="fw-bold"> Category : <span class="blueColor"><?=$items[$i]["nameC"]?></span></p>
+                    <p class="fw-bold">Tages : <span class="blueColor">Tages1 Tags 2</span></p>
+                    <p><?=$items[$i]["content"]?></p>
+                    <a href="#" class="btn butt btn-primary mt-2">More Details </a>
+                </div>
+                <?php
+            }else{
+                ?>
+                <div class="textHero col-6 p-4">
+                    <h1 class=""><span><?=$items[$i]["title"]?></span></h1>
+                    <p class="fw-bold"> Category : <span class="blueColor"><?=$items[$i]["nameC"]?></span></p>
+                    <p class="fw-bold">Tages : <span class="blueColor">Tages1 Tags 2</span></p>
+                    <p><?=$items[$i]["content"]?></p>
+                    <a href="#" class="btn butt btn-primary mt-2">More Details </a>
+                </div>
+                <div class="image col-6" style='height:360px !important; overflow:hidden'>
+                    <img src="assets/uploads/<?=$items[$i]["urlImage"]?>" style="height: 360px ;"  alt="">
+                </div>
+                <?php
+            }
+            ?>
         </div>
-        <div class="wikis row mb-3">
-            <div class="textHero col-6 p-4">
-                <h1 class=""><span>Wiki</span>Title</h1>
-                <p class="fw-bold"> Category : <span class="blueColor">CategoryName</span></p>
-                <p class="fw-bold">Tages : <span class="blueColor">Tages1 Tags 2</span></p>
-                <p>make a place where everyone can work together, <br> create, find and share wikis in an easy and interesting way.</p>
-                <a href="#" class="btn butt btn-primary mt-2">More Details </a>
-            </div>
-            <div class="image col-6">
-                <img src="assets/user/assets/img/WikiWorld.png" style="width: 50%;"  alt="">
-            </div>
-        </div>
-        <div class="wikis row mb-3">
-            <div class="image col-6">
-                <img src="assets/user/assets/img/WikiWorld.png" style="width: 50%;"  alt="">
-            </div>
-            <div class="textHero col-6 p-4">
-                <h1 class=""><span>Wiki</span>Title</h1>
-                <p class="fw-bold"> Category : <span class="blueColor">CategoryName</span></p>
-                <p class="fw-bold">Tages : <span class="blueColor">Tages1 Tags 2</span></p>
-                <p>make a place where everyone can work together, <br> create, find and share wikis in an easy and interesting way.</p>
-                <a href="#" class="btn butt btn-primary mt-2">More Details </a>
-            </div>
-        </div>
+        <?php 
+        }
+        ?>
     </section>
     <h1 class="mb-3 mt-5 ml-2 fw-bold titleSection">Last 4 Category</h1><hr>
     <section class="services p-4 d-flex flex-wrap gap-4 justify-content-between align-items-center">

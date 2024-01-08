@@ -16,7 +16,7 @@ ob_start();
               <h2>Add New Item</h2>
             </div>
             <div class="modal-body">
-                <form method="POST" action="<?=$_ENV['APP_URL']."/userItems"?>">
+                <form method="POST" enctype="multipart/form-data" action="<?=$_ENV['APP_URL']."/userItems"?>">
                     <input type="text" name="title" class="form-control mt-3" placeholder="Item Name">
 
                     <input type="text" name="content" class="form-control mt-3" placeholder="Item Content">
@@ -37,7 +37,7 @@ ob_start();
                         <option value="4">Kenya</option>
                       </select>
                     </div>
-                    <input type="file" class="form-control mt-3" accept=".jpg, .png, .jpeg">
+                    <input type="file" name='photo' class="form-control mt-3" accept=".jpg, .png, .jpeg">
 
                     <div class="button mt-3 mb-3 d-flex gap-2 justify-content-end">
                         <button type="submit" class="btn btn-outline-success">Add</button>
@@ -66,7 +66,7 @@ ob_start();
       <tr>
         <td>
           <div class="d-flex align-items-center">
-            <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt=""  style="width: 45px; height: 45px" class="rounded-circle"/>
+            <img src="assets/uploads/<?=$items[$i]['urlImage']?>" alt=""  style="width: 45px; height: 45px" class="rounded-circle"/>
             <p class="fw-bold mb-1 ms-3"><?=$items[$i]['title']?></p>
           </div>
         </td>
@@ -117,18 +117,13 @@ ob_start();
         xhttp.onload = function() {
           Swal.fire({
             title: "Deleted!",
-            text: "Your file has been deleted.",
+            text: "Your Item has been deleted.",
             icon: "success"
           });
           document.getElementById('tableBody').innerHTML=this.responseText;
-          
         }
         xhttp.open("GET",url,true);
         xhttp.send();
-        
-        
-
-       
     }
     });
 }
