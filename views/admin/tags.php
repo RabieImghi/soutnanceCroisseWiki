@@ -1,4 +1,5 @@
 <?php
+$tags="ok";
 ob_start();
 ?>
 <div class="headerSection">

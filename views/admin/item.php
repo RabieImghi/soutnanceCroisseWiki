@@ -1,4 +1,5 @@
 <?php
+$items='ok';
 ob_start();
 ?>
 <div class="headerSection">

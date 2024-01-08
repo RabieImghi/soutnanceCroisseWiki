@@ -1,4 +1,5 @@
 <?php
+$dashboard="ok";
 ob_start();
 ?>
 <div class="headerSection">

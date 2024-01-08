@@ -20,6 +20,8 @@ $router->get($url."/logout", AuthController::class,"logoutUser");
 // user router
 $router->get($url."/items", HomeController::class,"UserItems");
 $router->get($url."/userItems", HomeController::class,"userItemsAdmin");
+$router->post($url."/userItems", ItemsController::class,"addNewItem");
+
 
 // admin router 
 $router->get($url."/AdminItems", ItemsController::class,"getItems");

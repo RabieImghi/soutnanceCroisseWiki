@@ -1,4 +1,5 @@
 <?php
+$itemAuthour='ok';
 ob_start();
 ?>
 <div class="headerSection">
@@ -14,7 +15,7 @@ ob_start();
               <h2>Add New Item</h2>
             </div>
             <div class="modal-body">
-                <form method="Post" action="<?=$_ENV['APP_URL']."/"?>">
+                <form method="POST" action="<?=$_ENV['APP_URL']."/userItems"?>">
                     <input type="text" name="title" class="form-control mt-3" placeholder="Item Name">
 
                     <input type="text" name="content" class="form-control mt-3" placeholder="Item Content">
@@ -52,27 +53,36 @@ ob_start();
       <tr>
         <th>Items Name </th>
         <th>Items Content </th>
-        <th>User Name</th>
+        <th>Tags</th>
         <th>Category Name</th>
         <th>Actions</th>
       </tr>
     </thead>
     <tbody>
+      <?php 
+      for($i=0;$i<count($items);$i++){
+        ?>
       <tr>
         <td>
           <div class="d-flex align-items-center">
             <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt=""  style="width: 45px; height: 45px" class="rounded-circle"/>
-            <p class="fw-bold mb-1 ms-3">Items 1</p>
+            <p class="fw-bold mb-1 ms-3"><?=$items[$i]['title']?></p>
           </div>
         </td>
         <td>
-          <p class="fw-normal mb-1">Items Content</p>
+          <p class="fw-normal mb-1"><?=$items[$i]['content']?></p>
         </td>
         <td>
-          <p class="fw-normal mb-1">RabieImghi</p>
+          <p class="fw-normal mb-1">
+            <?php 
+            for($j=0;$j<count($wikis[$i]);$j++){
+              echo $wikis[$i][$j]['nameT']." ";
+            }
+            ?>
+          </p>
         </td>
         <td>
-          <p class="fw-normal mb-1">Php</p>
+          <p class="fw-normal mb-1"><?=$items[$i]['nameC']?></p>
         </td>
         <td >
           <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="cursor-pointer bi bi-pencil-square" viewBox="0 0 16 16">
@@ -84,7 +94,9 @@ ob_start();
           </svg>
         </td>
       </tr>
-      
+      <?php
+      }
+      ?>
     </tbody>
 </table>
 <?php 

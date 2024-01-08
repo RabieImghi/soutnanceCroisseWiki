@@ -32,6 +32,8 @@ Class AuthController{
             $_SESSION['id_user']= $user[0]['userID'];
             $view=new HomeController();
             $view->index();
+        }else{
+            Controller::render("Auth/login");
         }
     }
     public function logoutUser(){

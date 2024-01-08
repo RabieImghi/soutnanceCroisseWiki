@@ -1,4 +1,5 @@
 <?php
+$category="ok";
 ob_start();
 ?>
 <div class="headerSection">

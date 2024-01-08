@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 use App\Controller;
+use App\Models\Item;
+use App\Models\WikiTags;
 Class HomeController{
     public function index(){
         if(isset($_SESSION["role_user"])){
@@ -15,6 +17,10 @@ Class HomeController{
         Controller::render("user/allItems");
     }
     public function userItemsAdmin(){
-        Controller::render("admin/itemAuthor");
+        $data['items']=Item::getAllItem();
+        foreach ($data['items'] as $item){
+            $data['wikis'][]=WikiTags::getWikisTags($item['wikiID']);
+        }
+        Controller::render("admin/itemAuthor",$data);
     }
 }
