@@ -13,4 +13,10 @@ Class TagController{
         $tag->addNewTag();
         $this->getAllTags();
     }
+    public function deletTag(){
+        $id=$_GET['id'];
+        Tage::deletTag($id);
+        $data['allTagss']=Tage::getAllTags();
+        Controller::render("admin/deletTagView",$data);
+    }
 }

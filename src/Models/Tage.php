@@ -21,4 +21,10 @@ Class Tage{
         $stmt->execute([$this->nameT,$this->decription]);
         return true;
     }
+    public static function deletTag($id){
+        $db = Database::getConnection();
+        $stmt=$db->prepare("DELETE FROM tags WHERE tagID = ?");
+        $stmt->execute([$id]);
+        return true;
+    }
 }
