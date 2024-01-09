@@ -9,6 +9,12 @@ Class Category{
         $this->nameC = $name;
         $this->decription = $decription;
     }
+    public function addNewCategory() {
+        $db = Database::getConnection();
+        $stmt=$db->prepare("INSERT INTO categories (nameC,descr) VALUES (?,?)");
+        $stmt->execute([$this->nameC,$this->decription]);
+        return true;
+    }
     public static function getAllCategory($nombre){
         $db = Database::getConnection();
         if($nombre!="n"){

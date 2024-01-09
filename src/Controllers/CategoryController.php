@@ -7,6 +7,12 @@ Class CategoryController{
         $data['categorys']=Category::getAllCategory('n');
         Controller::render("admin/category",$data);
     }
+    public function addNewCategory(){
+        extract($_POST);
+        $Category=new Category($nameC,$decription);
+        $Category->addNewCategory();
+        $this->getAllCategory();
+    }
     public function deletCatgory(){
         $id=$_GET['id'];
         Category::deletCatgory($id);

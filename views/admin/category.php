@@ -15,11 +15,11 @@ ob_start();
                 <h2>Add New Category</h2>
                 </div>
             <div class="modal-body">
-                <form action="">
-                    <input type="text" class="form-control mt-3" placeholder="Category Name">
-                    <textarea name="" id="" class="form-control  mt-3" rows="6"  placeholder="Category Description"></textarea>
+                <form action="<?=$_ENV['APP_URL']."/CategorysLists"?>" method='post'>
+                    <input type="text" class="form-control mt-3" name="nameC" placeholder="Category Name">
+                    <textarea name="decription" id="" class="form-control  mt-3" rows="6"  placeholder="Category Description"></textarea>
                     <div class="button mt-3 mb-3 d-flex gap-2 justify-content-end">
-                        <button type="button" class="btn btn-outline-success">Add</button>
+                        <button type="sybmit" class="btn btn-outline-success">Add</button>
                         <button type="reset"  data-bs-dismiss="modal" class="btn btn-outline-dark">Close</button>
                     </div>
                 </form>
