@@ -19,4 +19,10 @@ Class TagController{
         $data['allTagss']=Tage::getAllTags();
         Controller::render("admin/deletTagView",$data);
     }
+    public function updateTags(){
+        extract($_POST);
+        $tag=new Tage($Name,$decription);
+        $tag->updateTags($idTag);
+        $this->getAllTags();
+    }
 }

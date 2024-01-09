@@ -31,6 +31,7 @@ $router->get($url."/TagsLists", TagController::class,"getAllTags");
 $router->get($url."/CategorysLists", CategoryController::class,"getAllCategory");
 $router->get($url."/archiveItem", ItemsController::class,"archiveItem");
 $router->post($url."/TagsLists", TagController::class,"addNewTag");
+$router->post($url."/updateTags", TagController::class,"updateTags");
 $router->get($url."/deletTags", TagController::class,"deletTag");
 
 

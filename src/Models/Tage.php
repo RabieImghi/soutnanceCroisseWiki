@@ -27,4 +27,10 @@ Class Tage{
         $stmt->execute([$id]);
         return true;
     }
+    public function updateTags($id){
+        $db = Database::getConnection();
+        $stmt=$db->prepare("UPDATE tags SET nameT=?,decription=? WHERE tagID = ?");
+        $stmt->execute([$this->nameT,$this->decription,$id]);
+        return true;
+    }
 }
