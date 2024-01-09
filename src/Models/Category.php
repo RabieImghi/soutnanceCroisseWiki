@@ -21,6 +21,11 @@ Class Category{
             $stmt->execute();
             return $stmt->fetchAll(\PDO::FETCH_ASSOC);
         }
-        
+    }
+    public static function deletCatgory($id){
+        $db = Database::getConnection();
+        $stmt=$db->prepare("DELETE FROM categories WHERE categoryID = ?");
+        $stmt->execute([$id]);
+        return true;
     }
 }
