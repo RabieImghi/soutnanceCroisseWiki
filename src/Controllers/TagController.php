@@ -7,5 +7,10 @@ Class TagController{
         $data['allTagss']=Tage::getAllTags();
         Controller::render("admin/tags",$data);
     }
-    
+    public function addNewTag(){
+        extract($_POST);
+        $tag=new Tage($Name,$decription);
+        $tag->addNewTag();
+        $this->getAllTags();
+    }
 }

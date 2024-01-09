@@ -15,4 +15,10 @@ Class Tage{
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
+    public function addNewTag(){
+        $db = Database::getConnection();
+        $stmt=$db->prepare("INSERT INTO tags (nameT,decription) VALUES (?,?)");
+        $stmt->execute([$this->nameT,$this->decription]);
+        return true;
+    }
 }
