@@ -83,4 +83,11 @@ Class Item{
         $result = $stmt->fetchAll(\PDO::FETCH_ASSOC)[0];
         return $result;
     }
+    public static function search($type,$value){
+        $db = Database::getConnection();
+        $stmt=$db->prepare("SELECT * FROM tags NATURAL JOIN wiki_tags NATURAL JOIN wikis NATURAL JOIN categories 
+        WHERE  deletedAt IS NULL AND $type LIKE ? GROUP BY wikis.wikiID ");
+        $stmt->execute(["%$value%"]);
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC); 
+    }
 }

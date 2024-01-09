@@ -60,7 +60,6 @@ ob_start();
     <thead class="bg-light">
       <tr>
         <th>Items Name </th>
-        <th>Items Content </th>
         <th>Tags</th>
         <th>Category Name</th>
         <th>Actions</th>
@@ -76,9 +75,6 @@ ob_start();
             <img src="assets/uploads/<?=$items[$i]['urlImage']?>" alt=""  style="width: 45px; height: 45px" class="rounded-circle"/>
             <p class="fw-bold mb-1 ms-3"><?=$items[$i]['title']?></p>
           </div>
-        </td>
-        <td>
-          <p class="fw-normal mb-1"><?=$items[$i]['content']?></p>
         </td>
         <td>
           <p class="fw-normal mb-1">

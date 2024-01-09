@@ -12,31 +12,34 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
   </head>
   <body class="d-flex justify-content-center align-items-center">
-    <main>
+    <section>
         <div class="logo text-center">
             <img src="assets/auth/assets/img/logo.png" alt="logo" width="300px">
         </div>
-        <div class="cardForm shadow p-5 m-3 ">
-            <h3 class="blueColor text-center">Login to Your Account</h3>
-            <p class="text-center text-secondary">Enter your email & password to login</p>
-            <form action="<?=$_ENV['APP_URL']."/"?>" method="post" class="d-flex flex-column justify-content-between gap-4">
-                <label class="text-secondary">Your Email 
-                    <input type="email" name="email" id="" placeholder="Your Email ..." class="form-control mt-1">
-                </label>
-                <label class="text-secondary">Your Password 
-                    <input type="password" name="password" id=""  class="form-control mt-1">
-                </label>
-                <label class="text-secondary">
-                    <input type="checkbox" class="form-check-input"> Remember me
-                </label>
-                <button class="btn btn-primary">Login</button>
-                <p class="text-secondary">Don't have account? <a href="<?=$_ENV['APP_URL']."/Registre"?>" class="blueColor no-underline"> Create an account</a></p>
-            </form>
+        <div class="d-flex  justify-content-center">
+            <div class="cardForm shadow p-5 m-3 ">
+                <h3 class="blueColor text-center">Login to Your Account</h3>
+                <p class="text-center text-secondary">Enter your email & password to login</p>
+                <form action="<?=$_ENV['APP_URL']."/"?>" method="post" class="d-flex flex-column justify-content-between gap-4">
+                    <label class="text-secondary">Your Email 
+                        <input type="email" name="email" id="" placeholder="Your Email ..." class="form-control mt-1">
+                    </label>
+                    <label class="text-secondary">Your Password 
+                        <input type="password" name="password" id=""  class="form-control mt-1">
+                    </label>
+                    <label class="text-secondary">
+                        <input type="checkbox" class="form-check-input"> Remember me
+                    </label>
+                    <button class="btn btn-primary">Login</button>
+                    <p class="text-secondary">Don't have account? <a href="<?=$_ENV['APP_URL']."/Registre"?>" class="blueColor no-underline"> Create an account</a></p>
+                </form>
+            </div>
         </div>
+        
         <div class="footer text-center">
             <p>Designed by <span class="blueColor">Rabie Ait Imghi</span></p>
         </div>
-    </main>
+    </section>
     <script src="assets/auth/assets/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>

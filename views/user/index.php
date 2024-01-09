@@ -15,7 +15,7 @@ ob_start();
             <img src="assets/user/assets/img/WikiWorld.png" style="width: 100%;"  alt="">
         </div>
     </section>
-    <h1 class="mb-3 mt-5 ml-2 fw-bold titleSection">Our services</h1><hr>
+    <h1 class="mb-3 mt-5 ml-2 h2 fw-bold titleSection">Our services</h1><hr>
     <section class="services p-4 d-flex flex-wrap gap-4 justify-content-between align-items-center">
         <div class="card shadow" style="width: 18rem;">
             <img src="assets/user/assets/img/services.jpg" class="card-img-top" alt="...">
@@ -39,7 +39,7 @@ ob_start();
             </div>
         </div>
     </section>
-    <h1 class="mb-3 mt-5 ml-2 fw-bold titleSection">Last 3 Wiks</h1><hr>
+    <h1 class="mb-3 mt-5 ml-2 h2 fw-bold titleSection">Last  Wiks</h1><hr>
     <section class="LasWikis">
         <?php 
         for($i=0;$i<count($items);$i++){
@@ -61,7 +61,6 @@ ob_start();
                         }
                         ?>
                     </span></p>
-                    <p><?=$items[$i]["content"]?></p>
                     <a href="<?=$_ENV['APP_URL']."/detailItem?idItem=".$items[$i]["wikiID"]?>" class="btn butt btn-primary mt-2">More Details </a>
                 </div>
                 <?php
@@ -77,7 +76,6 @@ ob_start();
                         }
                         ?>
                     </span></p>
-                    <p><?=$items[$i]["content"]?></p>
                     <a href="<?=$_ENV['APP_URL']."/detailItem?idItem=".$items[$i]["wikiID"]?>" class="btn butt btn-primary mt-2">More Details </a>
                 </div>
                 <div class="image col-6" style='height:360px !important; overflow:hidden'>
@@ -91,7 +89,7 @@ ob_start();
         }
         ?>
     </section>
-    <h1 class="mb-3 mt-5 ml-2 fw-bold titleSection">Last 4 Category</h1><hr>
+    <h1 class="mb-3 mt-5 ml-2 h2 fw-bold titleSection">Last Category</h1><hr>
     <section class="services p-4 d-flex flex-wrap gap-4 justify-content-between align-items-center">
         <?php 
         foreach($categorys as $category):

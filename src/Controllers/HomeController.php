@@ -41,4 +41,13 @@ Class HomeController{
         $data['tagsWikis']=Tage::getAllTags();
         Controller::render("admin/itemAuthor",$data);
     }
+    public function searchItemsUsre(){
+        $type=$_GET['type'];
+        $value=$_GET['value'];
+        $data['items'] = Item::search($type,$value);
+        foreach ($data['items'] as $item){
+            $data['wikis'][]=WikiTags::getWikisTags($item['wikiID']);
+        }
+        Controller::render("user/search",$data);
+    }
 }

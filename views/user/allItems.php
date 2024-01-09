@@ -3,20 +3,20 @@ $itemsnav='ok';
 ob_start();
 ?>
     <div class="filter d-flex gap-4 w-50 mt-2 mb-3">
-        <select name="" id="" class="form-control w-25">
-            <option value="1" selected disabled>Filtr By</option>
-            <option value="1">Wiki</option>
-            <option value="1">Tages</option>
-            <option value="1">Category</option>
+        <select name="" id="type" class="form-control w-25">
+            <option value="title" selected disabled>Filtr By</option>
+            <option value="title">Wiki</option>
+            <option value="nameT">Tages</option>
+            <option value="nameC">Category</option>
         </select>
 
-        <input type="search" name="search" id="search" class="form-control" placeholder="Search...">
+        <input type="search" onkeyup="serach()" name="search" id="search" class="form-control" placeholder="Search...">
     </div>
-    <section class="LasWikis">
+    <section class="LasWikis" id='bodySection'>
         <?php 
         for($i=0;$i<count($items);$i++){
         ?>
-        <div class="wikis row mb-3 shadow">
+        <div class="wikis row mb-5 shadow">
             <?php
             if($i%2== 0){
                 ?>
@@ -33,8 +33,7 @@ ob_start();
                         }
                         ?>
                     </span></p>
-                    <p><?=$items[$i]["content"]?></p>
-                    <a href="#" class="btn butt btn-primary mt-2">More Details </a>
+                    <a href="<?=$_ENV['APP_URL']."/detailItem?idItem=".$items[$i]["wikiID"]?>" class="btn butt btn-primary mt-2">More Details </a>
                 </div>
                 <?php
             }else{
@@ -49,8 +48,7 @@ ob_start();
                         }
                         ?>
                     </span></p>
-                    <p><?=$items[$i]["content"]?></p>
-                    <a href="#" class="btn butt btn-primary mt-2">More Details </a>
+                    <a href="<?=$_ENV['APP_URL']."/detailItem?idItem=".$items[$i]["wikiID"]?>" class="btn butt btn-primary mt-2">More Details </a>
                 </div>
                 <div class="image col-6" style='height:360px !important; overflow:hidden'>
                     <img src="assets/uploads/<?=$items[$i]["urlImage"]?>" style="height: 360px ;"  alt="">
@@ -63,6 +61,20 @@ ob_start();
         }
         ?>
     </section>
+    <script>
+        function serach(){
+            var type=document.getElementById('type').value;
+            var input=document.getElementById('search').value;
+            var url ="/soutCrois/public/searchItemsUsre?type="+type+"&value="+input;
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = function() {
+                document.getElementById('bodySection').innerHTML=this.responseText;
+            }
+            xhttp.open("GET",url,true);
+            xhttp.send();
+            
+        }
+    </script>
 <?php
 $content=ob_get_clean();
 include "../views/user/header.php";

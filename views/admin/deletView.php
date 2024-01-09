@@ -10,9 +10,6 @@ for($i=0;$i<count($items);$i++){
     </div>
 </td>
 <td>
-    <p class="fw-normal mb-1"><?=$items[$i]['content']?></p>
-</td>
-<td>
     <p class="fw-normal mb-1">
     <?php 
     for($j=0;$j<count($wikis[$i]);$j++){

@@ -24,6 +24,7 @@ $router->post($url."/userItems", ItemsController::class,"addNewItem");
 $router->post($url."/updateItems", ItemsController::class,"updateItem");
 $router->get($url."/deletItemUser", ItemsController::class,"deletItemUser");
 $router->get($url."/detailItem", ItemsController::class,"detailItem");
+$router->get($url."/searchItemsUsre", HomeController::class,"searchItemsUsre");
 
 
 // admin router 
