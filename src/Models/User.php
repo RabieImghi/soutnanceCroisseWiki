@@ -32,4 +32,20 @@ Class User{
         $stmtSearch->execute([$email,$password]);
         return $stmtSearch->fetchAll(\PDO::FETCH_ASSOC);
     }
+    public static function getStatistical(){
+        $db = Database::getConnection();
+        $countItems=$db->prepare("SELECT count(wikiID) as total FROM wikis");
+        $countItems->execute();
+        $data['countItems'] = $countItems->fetchAll(\PDO::FETCH_ASSOC)[0];
+        
+        $countCateg=$db->prepare("SELECT count(*) as total FROM categories");
+        $countCateg->execute();
+        $data['countCateg'] = $countCateg->fetchAll(\PDO::FETCH_ASSOC)[0];
+
+        $countTags=$db->prepare("SELECT count(*) as total FROM tags");
+        $countTags->execute();
+        $data['countTags'] = $countTags->fetchAll(\PDO::FETCH_ASSOC)[0];
+
+        return $data;
+    }
 }

@@ -23,6 +23,5 @@ class Route{
             $controller = new $controller();
             $controller->$action();
         }
-        
     }
 }

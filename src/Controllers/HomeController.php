@@ -3,21 +3,24 @@
 namespace App\Controllers;
 use App\Controller;
 use App\Models\Item;
+use App\Models\User;
 use App\Models\WikiTags;
 use App\Models\Category;
 use App\Models\Tage;
 Class HomeController{
     public function index(){
+        // User data Interface
         $data['items']=Item::getAllItem(3);
         foreach ($data['items'] as $item){
             $data['wikis'][]=WikiTags::getWikisTags($item['wikiID']);
         }
         $data['categorys']=Category::getAllCategory(4);
+        $dataAdmin['statisticals']=User::getStatistical();
+        // admin data interface 
         if(isset($_SESSION["role_user"])){
-            if($_SESSION["role_user"]=="admin")  Controller::render("admin/index");
-            if($_SESSION["role_user"]=="author") {
-                Controller::render("user/index",$data);
-            } 
+            if($_SESSION["role_user"]=="admin")  Controller::render("admin/index",$dataAdmin);
+            if($_SESSION["role_user"]=="author") Controller::render("user/index",$data);
+            
         }else{
             Controller::render("user/index",$data);
         }
