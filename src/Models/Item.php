@@ -8,6 +8,7 @@ Class Item{
     private $categoryID;
     private $urlImage;
     private $deletedAt;
+    private $updateAt;
 
     public function __construct($title,$content,$userID,$categoryID,$urlImage){
         $this->title = $title;
@@ -16,25 +17,34 @@ Class Item{
         $this->categoryID = $categoryID;
         $this->urlImage = $urlImage;
         $this->deletedAt = null;
+        $this->updateAt =date('Y-m-d H:i:s');
     }
     public function addNewItem(){
         $db = Database::getConnection();
-        $stmt=$db->prepare("INSERT INTO wikis (title,content,userID,categoryID,urlImage,deletedAt) VALUES (?,?,?,?,?,?) ");
-        $stmt->execute([$this->title,$this->content,$this->userID,$this->categoryID,$this->urlImage,$this->deletedAt]);
+        $stmt=$db->prepare("INSERT INTO wikis (title,content,userID,categoryID,urlImage,deletedAt,updateAt) VALUES (?,?,?,?,?,?,?) ");
+        $stmt->execute([$this->title,$this->content,$this->userID,$this->categoryID,$this->urlImage,$this->deletedAt,$this->updateAt]);
         return $db->lastInsertId();
     }
     public function updateItem($idWiki){
         $db = Database::getConnection();
-        $stmt=$db->prepare("UPDATE wikis SET title=?, content=?, userID=?, categoryID=?, urlImage=?, deletedAt=? WHERE wikiID =?");
-        $stmt->execute([$this->title,$this->content,$this->userID,$this->categoryID,$this->urlImage,$this->deletedAt,$idWiki]);
+        $stmt=$db->prepare("UPDATE wikis SET title=?, content=?, userID=?, categoryID=?, urlImage=?, deletedAt=?, updateAt=? WHERE wikiID =?");
+        $stmt->execute([$this->title,$this->content,$this->userID,$this->categoryID,$this->urlImage,$this->deletedAt,$this->updateAt,$idWiki]);
         return true;
     }
-    public static function getAllItemUser(){
+    public static function getAllItemUser($role=null){
         $db = Database::getConnection();
-        $stmt=$db->prepare("SELECT * FROM wikis NATURAL JOIN categories WHERE wikis.userID =?");
-        $stmt->execute([$_SESSION['id_user']]);
-        $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-        return $result;
+        if($role=="admin"){
+            $stmt=$db->prepare("SELECT * FROM users NATURAL JOIN wikis NATURAL JOIN categories");
+            $stmt->execute();
+            $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            return $result;
+        }else{
+            $stmt=$db->prepare("SELECT * FROM wikis NATURAL JOIN categories WHERE wikis.userID =? AND deletedAt IS NULL");
+            $stmt->execute([$_SESSION['id_user']]);
+            $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            return $result;
+        }
+        
     }
     public static function deletItem($id){
         $db = Database::getConnection();
@@ -45,12 +55,12 @@ Class Item{
     public static function getAllItem($nombre){
         $db = Database::getConnection();
         if($nombre=="n"){
-            $stmt=$db->prepare("SELECT * FROM wikis NATURAL JOIN categories");
+            $stmt=$db->prepare("SELECT * FROM wikis NATURAL JOIN categories WHERE deletedAt IS NULL");
             $stmt->execute();
             $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
             return $result;
         }else{
-            $stmt = $db->prepare("SELECT * FROM wikis NATURAL JOIN categories ORDER BY wikiID DESC LIMIT :limit");
+            $stmt = $db->prepare("SELECT * FROM wikis NATURAL JOIN categories WHERE  deletedAt IS NULL ORDER BY updateAt DESC LIMIT :limit");
             $stmt->bindParam(':limit', $nombre,\PDO::PARAM_INT);
             $stmt->execute();
             $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
@@ -58,5 +68,12 @@ Class Item{
         }
 
         
+    }
+    public static function archiveItem($id){
+        $db = Database::getConnection();
+        $date=date('Y-m-d H:i:s');
+        $stmt=$db->prepare("UPDATE wikis SET deletedAt=? WHERE wikiID =?");
+        $stmt->execute([$date,$id]);
+        return true;
     }
 }

@@ -29,6 +29,7 @@ $router->get($url."/deletItemUser", ItemsController::class,"deletItemUser");
 $router->get($url."/AdminItems", ItemsController::class,"getItems");
 $router->get($url."/TagsLists", TagController::class,"getAllTags");
 $router->get($url."/CategorysLists", CategoryController::class,"getAllCategory");
+$router->get($url."/archiveItem", ItemsController::class,"archiveItem");
 
 
 

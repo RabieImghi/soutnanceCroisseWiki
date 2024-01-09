@@ -4,10 +4,18 @@ use App\Controller;
 use App\Controllers\HomeController;
 use App\Models\Item;
 use App\Models\WikiTags;
+use App\Models\Category;
+use App\Models\Tage;
 Class ItemsController{
     
     public function getItems(){
-        Controller::render("admin/item");
+        $data['items']=Item::getAllItemUser("admin");
+        foreach ($data['items'] as $item){
+            $data['wikis'][]=WikiTags::getWikisTags($item['wikiID']);
+        }
+        $data['categorys']=Category::getAllCategory("n");
+        $data['tagsWikis']=Tage::getAllTags();
+        Controller::render("admin/item",$data);
     }
     public function addNewItem(){
         extract($_POST);
@@ -74,5 +82,9 @@ Class ItemsController{
         }
         $views = new HomeController();
         $views->userItemsAdmin();
+    }
+    public function archiveItem(){
+        $id = $_GET["id"];
+        Item::archiveItem($id);
     }
 }
