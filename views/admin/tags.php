@@ -15,11 +15,11 @@ ob_start();
               <h2>Add New Tag</h2>
             </div>
             <div class="modal-body">
-                <form action="">
-                    <input type="text" class="form-control mt-3" placeholder="Tag Name">
-                    <textarea name="" id="" class="form-control  mt-3" rows="6"  placeholder="Tag Description"></textarea>
+                <form action="<?=$_ENV['APP_URL']."/TagsLists"?>" method="post">
+                    <input type="text" class="form-control mt-3" name="Name" placeholder="Tag Name">
+                    <textarea name="decription" id="" class="form-control  mt-3" rows="6"  placeholder="Tag Description"></textarea>
                     <div class="button mt-3 mb-3 d-flex gap-2 justify-content-end">
-                        <button type="button" class="btn btn-outline-success">Add</button>
+                        <button type="submit" class="btn btn-outline-success">Add</button>
                         <button type="reset"  data-bs-dismiss="modal" class="btn btn-outline-dark">Close</button>
                     </div>
                 </form>
@@ -37,12 +37,15 @@ ob_start();
       </tr>
     </thead>
     <tbody>
+      <?php 
+      foreach($allTagss as $tag) {
+        ?>
       <tr>
         <td>
-          <p class="fw-normal mb-1">Php</p>
+          <p class="fw-normal mb-1"><?=$tag['nameT']?></p>
         </td>
         <td>
-          <p class="fw-normal mb-1">Langage de programation</p>
+          <p class="fw-normal mb-1"><?=$tag['decription']?></p>
         </td>
         <td >
           <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="cursor-pointer bi bi-pencil-square" viewBox="0 0 16 16">
@@ -54,6 +57,9 @@ ob_start();
           </svg>
         </td>
       </tr>
+      <?php
+      }
+      ?>
     </tbody>
 </table>
 <?php 
