@@ -21,8 +21,8 @@ $router->get($url."/logout", AuthController::class,"logoutUser");
 $router->get($url."/items", HomeController::class,"UserItems");
 $router->get($url."/userItems", HomeController::class,"userItemsAdmin");
 $router->post($url."/userItems", ItemsController::class,"addNewItem");
+$router->post($url."/updateItems", ItemsController::class,"updateItem");
 $router->get($url."/deletItemUser", ItemsController::class,"deletItemUser");
-
 
 
 // admin router 

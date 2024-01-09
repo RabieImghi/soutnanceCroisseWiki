@@ -2,12 +2,12 @@
 namespace App\Models;
 use App\Models\Database;
 Class Category{
-    private $wikiID;
-    private $tagID;
+    private $nameC;
+    private $decription;
 
-    public function __construct($wikiID,$tagID){
-        $this->wikiID = $wikiID;
-        $this->tagID = $tagID;
+    public function __construct($name,$decription){
+        $this->nameC = $name;
+        $this->decription = $decription;
     }
     public static function getAllCategory($nombre){
         $db = Database::getConnection();

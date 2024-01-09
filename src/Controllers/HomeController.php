@@ -5,6 +5,7 @@ use App\Controller;
 use App\Models\Item;
 use App\Models\WikiTags;
 use App\Models\Category;
+use App\Models\Tage;
 Class HomeController{
     public function index(){
         $data['items']=Item::getAllItem(3);
@@ -33,6 +34,8 @@ Class HomeController{
         foreach ($data['items'] as $item){
             $data['wikis'][]=WikiTags::getWikisTags($item['wikiID']);
         }
+        $data['categorys']=Category::getAllCategory("n");
+        $data['tagsWikis']=Tage::getAllTags();
         Controller::render("admin/itemAuthor",$data);
     }
 }

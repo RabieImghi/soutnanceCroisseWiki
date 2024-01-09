@@ -23,6 +23,12 @@ Class Item{
         $stmt->execute([$this->title,$this->content,$this->userID,$this->categoryID,$this->urlImage,$this->deletedAt]);
         return $db->lastInsertId();
     }
+    public function updateItem($idWiki){
+        $db = Database::getConnection();
+        $stmt=$db->prepare("UPDATE wikis SET title=?, content=?, userID=?, categoryID=?, urlImage=?, deletedAt=? WHERE wikiID =?");
+        $stmt->execute([$this->title,$this->content,$this->userID,$this->categoryID,$this->urlImage,$this->deletedAt,$idWiki]);
+        return true;
+    }
     public static function getAllItemUser(){
         $db = Database::getConnection();
         $stmt=$db->prepare("SELECT * FROM wikis NATURAL JOIN categories WHERE wikis.userID =?");

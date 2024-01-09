@@ -14,6 +14,12 @@ Class WikiTags{
         $stmt=$db->prepare("INSERT INTO wiki_tags (wikiID,tagID) VALUES (?, ?)");
         $stmt->execute([$this->wikiID,$this->tagID]);
     }
+    public static function deletWikTags($wikiId){
+        $db = Database::getConnection();
+        $stmt=$db->prepare("DELETE FROM wiki_tags WHERE wikiID = ?");
+        $stmt->execute([$wikiId]);
+        return true;
+    }
     public static function getWikisTags($wikiID){
         $db = Database::getConnection();
         $stmt=$db->prepare("SELECT * FROM wiki_tags NATURAL JOIN tags WHERE wikiID = ?");

@@ -47,4 +47,32 @@ Class ItemsController{
             Controller::render("admin/deletView", $data);
         }
     }
+    public function updateItem(){
+        extract($_POST);
+        $userID=$_SESSION['id_user'];
+        if($_FILES["photo"]['name']!=''){
+            $imagePath = 'assets/uploads/'.$urlimage;
+            if (file_exists($imagePath) && $urlimage != "deafult.jpeg") {
+                unlink($imagePath);
+            } 
+
+            $targetDir = "assets/uploads/"; 
+            $imageName=date("Y_m_d_H_i_s"). basename($_FILES["photo"]["name"]);
+            $targetFile = $targetDir.$imageName;
+            move_uploaded_file($_FILES["photo"]["tmp_name"], $targetFile);
+        }else{
+            $imageName=$urlimage;
+        }
+        $item = new Item($title,$content,$userID,$category,$imageName);
+        $item->updateItem($idWiki);
+        if(!empty($Tags) && count($Tags)>0){
+            WikiTags::deletWikTags($idWiki);
+            for($i= 0;$i<count($Tags);$i++){   
+                $tagWiki = new WikiTags($idWiki,$Tags[$i]);
+                $tagWiki->addWikiTags();
+            }
+        }
+        $views = new HomeController();
+        $views->userItemsAdmin();
+    }
 }
