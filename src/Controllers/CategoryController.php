@@ -19,4 +19,10 @@ Class CategoryController{
         $data['categorys']=Category::getAllCategory('n');
         Controller::render("admin/deletCatView",$data);
     }
+    public function updateCategory(){
+        extract($_POST);
+        $Category=new Category($nameC,$decription);
+        $Category->updateCategory($idCat);
+        $this->getAllCategory();
+    }
 }

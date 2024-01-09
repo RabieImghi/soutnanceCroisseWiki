@@ -35,6 +35,7 @@ $router->post($url."/updateTags", TagController::class,"updateTags");
 $router->get($url."/deletTags", TagController::class,"deletTag");
 $router->get($url."/deletCatgory", CategoryController::class,"deletCatgory");
 $router->post($url."/CategorysLists", CategoryController::class,"addNewCategory");
+$router->post($url."/updateCategory", CategoryController::class,"updateCategory");
 
 
 

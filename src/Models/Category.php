@@ -34,4 +34,10 @@ Class Category{
         $stmt->execute([$id]);
         return true;
     }
+    public function updateCategory($id) {
+        $db = Database::getConnection();
+        $stmt=$db->prepare("UPDATE categories SET nameC=?,descr=? WHERE categoryID = ?");
+        $stmt->execute([$this->nameC,$this->decription,$id]);
+        return true;
+    }
 }
