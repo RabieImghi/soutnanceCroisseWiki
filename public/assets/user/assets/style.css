@@ -23,7 +23,7 @@ aside{
     margin-left: 20px;
 }
 .titleSection{
-    color: #012970;
+    color: #012970 !important;
     font-size: 40px;
 }
 .btn-primary:hover{
@@ -44,6 +44,7 @@ h5 span, .blueColor{
 .textHero h1 span{
     color: #6102fb;
 }
+
 .nav-link {
     color: #012970 !important;
 }
@@ -64,6 +65,22 @@ h5 span, .blueColor{
 .wikis .textHero{
     background-color: rgba(201, 192, 255, 0.254);
     height: 50vh !important;
+}
+
+.blue-move{
+    color: #6102fb !important;
+}
+.bg-blue-mv{
+    background-color: #6102fb !important;
+}
+.detailLef{
+    width: 20% !important;
+}
+.detailRight{
+    width: 70% !important;
+}
+.imageWikidetails img{
+    width: 400px !important;
 }
 @media screen and (max-width : 1000px) {
     .textHero h1{
@@ -98,6 +115,20 @@ h5 span, .blueColor{
         justify-content: center !important;
     }
     .contctForm input{
+        width: 200px !important;
+    }
+
+    .detailWikis.d-flex{
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+    }
+    .detailLef{
+        width: 100% !important;
+    }
+    .detailRight{
+        width: 100% !important;
+    }
+    .imageWikidetails img{
         width: 200px !important;
     }
 }

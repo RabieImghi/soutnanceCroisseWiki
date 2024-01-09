@@ -23,6 +23,7 @@ $router->get($url."/userItems", HomeController::class,"userItemsAdmin");
 $router->post($url."/userItems", ItemsController::class,"addNewItem");
 $router->post($url."/updateItems", ItemsController::class,"updateItem");
 $router->get($url."/deletItemUser", ItemsController::class,"deletItemUser");
+$router->get($url."/detailItem", ItemsController::class,"detailItem");
 
 
 // admin router 

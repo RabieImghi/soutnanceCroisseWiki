@@ -76,4 +76,11 @@ Class Item{
         $stmt->execute([$date,$id]);
         return true;
     }
+    public static function searchItemById($id){
+        $db = Database::getConnection();
+        $stmt=$db->prepare("SELECT * FROM users NATURAL JOIN wikis NATURAL JOIN categories WHERE wikis.wikiID =?");
+        $stmt->execute([$id]);
+        $result = $stmt->fetchAll(\PDO::FETCH_ASSOC)[0];
+        return $result;
+    }
 }

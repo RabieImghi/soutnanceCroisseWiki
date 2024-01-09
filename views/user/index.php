@@ -62,7 +62,7 @@ ob_start();
                         ?>
                     </span></p>
                     <p><?=$items[$i]["content"]?></p>
-                    <a href="#" class="btn butt btn-primary mt-2">More Details </a>
+                    <a href="<?=$_ENV['APP_URL']."/detailItem?idItem=".$items[$i]["wikiID"]?>" class="btn butt btn-primary mt-2">More Details </a>
                 </div>
                 <?php
             }else{
@@ -78,7 +78,7 @@ ob_start();
                         ?>
                     </span></p>
                     <p><?=$items[$i]["content"]?></p>
-                    <a href="#" class="btn butt btn-primary mt-2">More Details </a>
+                    <a href="<?=$_ENV['APP_URL']."/detailItem?idItem=".$items[$i]["wikiID"]?>" class="btn butt btn-primary mt-2">More Details </a>
                 </div>
                 <div class="image col-6" style='height:360px !important; overflow:hidden'>
                     <img src="assets/uploads/<?=$items[$i]["urlImage"]?>" style="height: 360px ;"  alt="">

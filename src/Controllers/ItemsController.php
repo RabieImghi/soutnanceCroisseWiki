@@ -87,4 +87,10 @@ Class ItemsController{
         $id = $_GET["id"];
         Item::archiveItem($id);
     }
+    public function detailItem(){
+        $id= $_GET["idItem"];
+        $data['oneItem']=Item::searchItemById($id);
+        $data['wikis']=WikiTags::getWikisTags($data['oneItem']['wikiID']);
+        Controller::render('user/details', $data);
+    }
 }
