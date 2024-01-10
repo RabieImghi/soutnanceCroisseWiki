@@ -34,7 +34,7 @@ ob_start();
           <p class="fw-normal mb-1" style="color: #012970 !important;">
             <?php 
             for($j=0;$j<count($wikis[$i]);$j++){
-              echo "#".$wikis[$i][$j]['nameT']." ";
+              echo "<span class='bg-dark text-white ps-1 px-1 pb-1 rounded-1'>#".$wikis[$i][$j]['nameT']."</span> ";
             }
             ?>
           </p>

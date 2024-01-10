@@ -20,7 +20,8 @@
             <div class="cardForm shadow p-5 m-3 ">
                 <h3 class="blueColor text-center">Create an Account</h3>
                 <p class="text-center text-secondary">Enter your personal details to create account</p>
-                <form action="<?=$_ENV['APP_URL']."/login"?>" method="post" class="d-flex flex-column justify-content-between gap-4">
+                <!-- action="<?=$_ENV['APP_URL']."/login"?>" method="post" -->
+                <form  class="d-flex flex-column justify-content-between gap-4">
                     <label class="text-secondary">Your Name 
                         <input required type="text" name="username" id="" placeholder="Your Name ..." class="form-control mt-1">
                     </label>
@@ -33,7 +34,7 @@
                     <label class="text-secondary">
                         <input required type="checkbox" class="form-check-input" > I agree and accept the <a  href="#" class="blueColor no-underline">terms and conditions</a> 
                     </label>
-                    <button class="btn btn-primary">Create Account</button>
+                    <button type="button" name="registre" class="btn btn-primary">Create Account</button>
                     <p class="text-secondary">Already have an account? <a href="<?=$_ENV['APP_URL']."/login"?>" class="blueColor no-underline"> Log in</a></p>
                 </form>
             </div>

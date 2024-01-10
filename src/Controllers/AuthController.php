@@ -24,16 +24,17 @@ Class AuthController{
 
     }
     public function loginUser(){
-        extract($_POST);
+        $dataJs = file_get_contents('php://input');
+        $data=json_decode($dataJs,true);
+        extract($data);
         $passHash= md5($password);
         $user=User::login($email,$passHash);
         if(!empty($user)){
             $_SESSION["role_user"]=$user[0]['role'];
             $_SESSION['id_user']= $user[0]['userID'];
-            $view=new HomeController();
-            $view->index();
+            echo "successfuly";
         }else{
-            Controller::render("Auth/login");
+            echo "error";
         }
     }
     public function logoutUser(){

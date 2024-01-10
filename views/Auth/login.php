@@ -20,17 +20,23 @@
             <div class="cardForm shadow p-5 m-3 ">
                 <h3 class="blueColor text-center">Login to Your Account</h3>
                 <p class="text-center text-secondary">Enter your email & password to login</p>
-                <form action="<?=$_ENV['APP_URL']."/"?>" method="post" class="d-flex flex-column justify-content-between gap-4">
+                <!-- action="<?=$_ENV['APP_URL']."/"?>" method="post" -->
+                <div class="alert alert-danger" style="opacity:0" id='errorLoginForm' role="alert">
+                    
+                </div>
+                <form name="loginForm" class="d-flex flex-column justify-content-between gap-4">
                     <label class="text-secondary">Your Email 
-                        <input type="email" name="email" id="" placeholder="Your Email ..." class="form-control mt-1">
+                        <input type="email" name="email" id="email" placeholder="Your Email ..." class="form-control mt-1">
+                        <span id='errorMessage1' class='text-danger' style='opacity:0'>_</span>
                     </label>
                     <label class="text-secondary">Your Password 
-                        <input type="password" name="password" id=""  class="form-control mt-1">
+                        <input type="password" name="password" id="password"  class="form-control mt-1">
+                        <span id='errorMessage2' class='text-danger' style='opacity:0'>_</span>
                     </label>
                     <label class="text-secondary">
                         <input type="checkbox" class="form-check-input"> Remember me
                     </label>
-                    <button class="btn btn-primary">Login</button>
+                    <button type="button" id='submit' class="btn btn-primary">Login</button>
                     <p class="text-secondary">Don't have account? <a href="<?=$_ENV['APP_URL']."/Registre"?>" class="blueColor no-underline"> Create an account</a></p>
                 </form>
             </div>

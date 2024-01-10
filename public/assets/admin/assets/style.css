@@ -1,17 +1,15 @@
-body{
-    background-color: rgb(243, 249, 255) !important;
-}
 header{
     position: sticky !important;;
     top: 0 !important;;
     height: 80px !important;
+    box-shadow: 2px 1px 30px rgba(211, 211, 211, 0.422);
 }
 header, aside{
     background-color: white;
 }
 aside{
     width: 250px !important;
-    box-shadow: 2px 1px 30px rgba(211, 211, 211, 0.39);
+    box-shadow: 2px 1px 30px rgba(211, 211, 211, 0.501);
     min-height: 80vh;
 }
 section {
@@ -23,6 +21,14 @@ section {
 .cursor-pointer{
     cursor: pointer;
 }
+.btn-outline-primary{
+    border-color: black !important;
+    color: black !important;
+}
+.btn-outline-primary:hover{
+    background-color: black !important;
+    color: white !important;
+}
 .togl_menu{
     margin-left: 80px;
 }
@@ -32,14 +38,13 @@ section {
 .nav-link{
     color: #012970 !important;
 }
-.nav-link.active{
-    color: #4154f1 !important;
-    background-color: #f6f9ff;
-}
+.nav-link.active, 
 .nav-link:hover{
-    color: #4154f1 !important;
-    background-color:  #f6f9ff;
+    color: white !important;
+    background-color: rgb(29, 29, 29);
+    box-shadow: 1px 1px 10px lightgray;
 }
+
 h2{
     color: #012970 !important;
 }

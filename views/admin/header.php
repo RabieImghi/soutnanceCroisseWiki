@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
   </head>
   <body>
-    <header class="p-3 mb-3 border-bottom">
+    <header class="p-3 mb-3" style='z-index: 1000000000000;'>
         <div class="p-2">
             <div class="d-flex align-items-center justify-content-between ">
                 <div class="d-flex gap-4 align-items-center ">
@@ -70,7 +70,7 @@
         </div>
     </header>
     <main class="d-flex gap-2 m-2">
-        <aside id="asideBar" class=" p-2 ml-2">
+        <aside id="asideBar" class=" p-2 mx-1">
             <div class="nav flex-column" >
                 <?php  
                 if($_SESSION['role_user']=="admin"){
