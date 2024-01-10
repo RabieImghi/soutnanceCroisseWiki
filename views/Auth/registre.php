@@ -20,21 +20,26 @@
             <div class="cardForm shadow p-5 m-3 ">
                 <h3 class="blueColor text-center">Create an Account</h3>
                 <p class="text-center text-secondary">Enter your personal details to create account</p>
-                <!-- action="<?=$_ENV['APP_URL']."/login"?>" method="post" -->
-                <form  class="d-flex flex-column justify-content-between gap-4">
+                <div class="alert alert-danger" style="opacity:0" id='errorRegistreForm' role="alert">
+                    
+                </div>
+                <form name="registreForm"  class="d-flex flex-column justify-content-between gap-4">
                     <label class="text-secondary">Your Name 
-                        <input required type="text" name="username" id="" placeholder="Your Name ..." class="form-control mt-1">
+                        <input required type="text" name="username" placeholder="Your Name ..." class="form-control mt-1">
+                        <span id='errorMessage3' class='text-danger' style='opacity:0'>_</span>
                     </label>
                     <label class="text-secondary">Your Email 
-                        <input required type="email" name="email" id="" placeholder="Your Email ..." class="form-control mt-1">
+                        <input required type="email" name="email" placeholder="Your Email ..." class="form-control mt-1">
+                        <span id='errorMessage1' class='text-danger' style='opacity:0'>_</span>
                     </label>
                     <label class="text-secondary">Your Password 
-                        <input required type="password" name="password" id=""  class="form-control mt-1">
+                        <input required type="password" name="password"  class="form-control mt-1">
+                        <span id='errorMessage2' class='text-danger' style='opacity:0'>_</span>
                     </label>
                     <label class="text-secondary">
                         <input required type="checkbox" class="form-check-input" > I agree and accept the <a  href="#" class="blueColor no-underline">terms and conditions</a> 
                     </label>
-                    <button type="button" name="registre" class="btn btn-primary">Create Account</button>
+                    <button type="button" id="registreSubmit" class="btn btn-primary">Create Account</button>
                     <p class="text-secondary">Already have an account? <a href="<?=$_ENV['APP_URL']."/login"?>" class="blueColor no-underline"> Log in</a></p>
                 </form>
             </div>

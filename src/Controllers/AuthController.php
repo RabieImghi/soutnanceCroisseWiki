@@ -13,14 +13,14 @@ Class AuthController{
         Controller::render("Auth/registre");
     }
     public function RegistreUser(){
-        extract($_POST);
+        $dataJs = file_get_contents('php://input');
+        $data=json_decode($dataJs,true);
+        extract($data);
         $passHash= md5($password);
         $user = new User($username,$email,$passHash,'author');
         $result = $user->register();
-        if($result) $this->login();
-        else {
-            $this->Registre();
-        }
+        if($result) echo "successfuly";
+        else echo "error";
 
     }
     public function loginUser(){

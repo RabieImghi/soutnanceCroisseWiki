@@ -20,7 +20,6 @@
             <div class="cardForm shadow p-5 m-3 ">
                 <h3 class="blueColor text-center">Login to Your Account</h3>
                 <p class="text-center text-secondary">Enter your email & password to login</p>
-                <!-- action="<?=$_ENV['APP_URL']."/"?>" method="post" -->
                 <div class="alert alert-danger" style="opacity:0" id='errorLoginForm' role="alert">
                     
                 </div>
