@@ -1,9 +1,5 @@
 <?php
 $itemAuthour='ok';
-if(!empty($error)){
-  var_dump($error);
-  die();
-}
 ob_start();
 ?>
 
@@ -166,6 +162,20 @@ ob_start();
       ?>
     </tbody>
 </table>
+<?php
+if(isset($_SESSION["errorMessage"])) {
+    echo "
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: '" . addslashes($_SESSION["errorMessage"]) . "',
+            });
+        });
+    </script>";
+}
+?>
 <script>
   function deletItems(id,urlImage){
     Swal.fire({

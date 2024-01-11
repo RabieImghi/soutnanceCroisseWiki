@@ -24,24 +24,25 @@ Class ItemsController{
         $views = new HomeController();
         extract($_POST);
         $error=true;
-        $typeFileTable=['jpeg','png','jpg'];
+        unset($_SESSION["errorMessage"]);
+        $typeFileTable=['image/jpeg','image/png','image/jpg'];
         if($csrf_token==$_SESSION['csrf_token']){
             $userID=$_SESSION['id_user'];
             if($_FILES["photo"]['name']!=''){
                 $fileType = $_FILES['photo']['type'];
                 $fileSize = $_FILES['photo']['size'];
                 if(in_array($fileType,$typeFileTable)){
-                    if($fileSize<=5){
+                    if($fileSize<=10000){
                         $targetDir = "assets/uploads/"; 
                         $imageName=date("Y_m_d_H_i_s"). basename($_FILES["photo"]["name"]);
                         $targetFile = $targetDir.$imageName;
                         move_uploaded_file($_FILES["photo"]["tmp_name"], $targetFile);
                     } else {
-                        $_SESSION['error']="Sie is larg";
+                        $_SESSION["errorMessage"]="The uploaded image size is too large. Please upload an image with a smaller size.";
                         $error=false;
                     }
                 }else {
-                    $_SESSION['error']="type not match";
+                    $_SESSION["errorMessage"]="Invalid file type. Please upload an image with the format JPG, PNG, or JPEG.";
                     $error=false;
                 }
             }else{
@@ -61,6 +62,7 @@ Class ItemsController{
                 }
                 $views->userItemsAdmin();
             }else{
+                
                 $views->userItemsAdmin();
             }
         }
