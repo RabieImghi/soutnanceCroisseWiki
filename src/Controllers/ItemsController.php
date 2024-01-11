@@ -6,9 +6,11 @@ use App\Models\Item;
 use App\Models\WikiTags;
 use App\Models\Category;
 use App\Models\Tage;
+use App\Controllers\AuthMiddlewareController;
 Class ItemsController{
     
     public function getItems(){
+        AuthMiddlewareController::handle();
         $data['items']=Item::getAllItemUser("admin");
         foreach ($data['items'] as $item){
             $data['wikis'][]=WikiTags::getWikisTags($item['wikiID']);
@@ -18,6 +20,7 @@ Class ItemsController{
         Controller::render("admin/item",$data);
     }
     public function addNewItem(){
+        AuthMiddlewareController::handle();
         extract($_POST);
         if($csrf_token==$_SESSION['csrf_token']){
             $userID=$_SESSION['id_user'];
@@ -48,6 +51,7 @@ Class ItemsController{
         }
     }
     public function deletItemUser(){
+        AuthMiddlewareController::handle();
         $id = $_GET["id"];
         $urlimage = $_GET["url"];
         $res= Item::deletItem($id);
@@ -66,6 +70,7 @@ Class ItemsController{
         }
     }
     public function updateItem(){
+        AuthMiddlewareController::handle();
         extract($_POST);
         $userID=$_SESSION['id_user'];
         if($_FILES["photo"]['name']!=''){
@@ -94,6 +99,7 @@ Class ItemsController{
         $views->userItemsAdmin();
     }
     public function archiveItem(){
+        AuthMiddlewareController::handle();
         $id = $_GET["id"];
         Item::archiveItem($id);
     }

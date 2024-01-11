@@ -7,6 +7,8 @@ use App\Models\User;
 use App\Models\WikiTags;
 use App\Models\Category;
 use App\Models\Tage;
+use App\Controllers\AuthMiddlewareController;
+
 Class HomeController{
     public function index(){
         // User data Interface
@@ -33,6 +35,7 @@ Class HomeController{
         Controller::render("user/allItems",$data);
     }
     public function userItemsAdmin(){
+        AuthMiddlewareController::handle();
         $data['items']=Item::getAllItemUser();
         foreach ($data['items'] as $item){
             $data['wikis'][]=WikiTags::getWikisTags($item['wikiID']);
@@ -52,6 +55,7 @@ Class HomeController{
         Controller::render("user/search",$data);
     }
     public static function generateCSRFToken() {
+        AuthMiddlewareController::handle();
         $token = bin2hex(random_bytes(32)); 
         $_SESSION['csrf_token']=$token; 
         return $token;
