@@ -21,19 +21,34 @@ Class ItemsController{
     }
     public function addNewItem(){
         AuthMiddlewareController::handle();
+        $views = new HomeController();
         extract($_POST);
+        $error=true;
+        $typeFileTable=['jpeg','png','jpg'];
         if($csrf_token==$_SESSION['csrf_token']){
             $userID=$_SESSION['id_user'];
             if($_FILES["photo"]['name']!=''){
-                $targetDir = "assets/uploads/"; 
-                $imageName=date("Y_m_d_H_i_s"). basename($_FILES["photo"]["name"]);
-                $targetFile = $targetDir.$imageName;
-                move_uploaded_file($_FILES["photo"]["tmp_name"], $targetFile);
+                $fileType = $_FILES['photo']['type'];
+                $fileSize = $_FILES['photo']['size'];
+                if(in_array($fileType,$typeFileTable)){
+                    if($fileSize<=5){
+                        $targetDir = "assets/uploads/"; 
+                        $imageName=date("Y_m_d_H_i_s"). basename($_FILES["photo"]["name"]);
+                        $targetFile = $targetDir.$imageName;
+                        move_uploaded_file($_FILES["photo"]["tmp_name"], $targetFile);
+                    } else {
+                        $_SESSION['error']="Sie is larg";
+                        $error=false;
+                    }
+                }else {
+                    $_SESSION['error']="type not match";
+                    $error=false;
+                }
             }else{
                 $imageName='deafult.jpeg';
             }
-            $views = new HomeController();
-            if($title !="" && $content!="" && $category !='null'){
+            
+            if($title !="" && $content!="" && $category !='null' && $error==true){
                 $title = htmlspecialchars($title, ENT_QUOTES,'UTF-8');
                 $content = htmlspecialchars($content, ENT_QUOTES,'UTF-8');
                 $item = new Item($title,$content,$userID,$category,$imageName);

@@ -1,5 +1,9 @@
 <?php
 $itemAuthour='ok';
+if(!empty($error)){
+  var_dump($error);
+  die();
+}
 ob_start();
 ?>
 
