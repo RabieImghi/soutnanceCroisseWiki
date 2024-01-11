@@ -20,10 +20,10 @@ submit?.addEventListener('click', function (){
                 if(this.responseText=="successfuly"){
                     window.location="/soutCrois/public/";
                 }else{
-                    document.getElementById('errorLoginForm').innerHTML="Your Email Or Password Incorect";
+                    document.getElementById('errorLoginForm').innerHTML="Your email or password is incorrect. Please check your credentials and try again.";
                     document.getElementById('errorLoginForm').style.opacity="1";
-                    validateMessage("errorMessage","email Invalid",1);
-                    validateMessage("errorMessage","Password Invalideo",2);
+                    validateMessage("errorMessage","Invalid email address. Please enter a valid email.",1);
+                    validateMessage("errorMessage","Invalid password. Please enter a valid password.",2);
                 }
                 
             }
@@ -32,12 +32,12 @@ submit?.addEventListener('click', function (){
         }
     }else{
         if(email.value==""){
-            validateMessage("errorMessage","email Vide",1);
+            validateMessage("errorMessage","Email cannot be empty. Please enter a valid email.",1);
             email.style.border="red 1px solid";
         }else validateEmail(email);
 
         if(password.value == ""){
-            validateMessage("errorMessage","Password Vide",2);
+            validateMessage("errorMessage","Password cannot be empty. Please enter a valid password.",2);
             password.style.border="red 1px solid";
         } else validatePassword(password,2);
     }
@@ -66,10 +66,10 @@ registre?.addEventListener('click', function (){
                 if(this.responseText=="successfuly"){
                     window.location="/soutCrois/public/login";
                 }else{
-                    document.getElementById('errorRegistreForm').innerHTML="Email Already Exciste";
+                    document.getElementById('errorRegistreForm').innerHTML="The provided email already exists. Please use a different email address.";
                     document.getElementById('errorRegistreForm').style.opacity="1";
-                    validateMessage("errorMessage","email Invalid",1);
-                    validateMessage("errorMessage","Password Invalideo",2);
+                    validateMessage("Invalid email address. Please enter a valid email.",1);
+                    validateMessage("errorMessage","Invalid password. Please enter a valid password.",2);
                 }
                 
             }
@@ -78,17 +78,17 @@ registre?.addEventListener('click', function (){
         }
     }else{
         if(email.value==""){
-            validateMessage("errorMessage","email Vide",1);
+            validateMessage("errorMessage","Email cannot be empty. Please enter a valid email.",1);
             email.style.border="red 1px solid";
         }else validateEmail(email);
 
         if(password.value == ""){
-            validateMessage("errorMessage","Password Vide",2);
+            validateMessage("errorMessage","Password cannot be empty. Please enter a valid password.",2);
             password.style.border="red 1px solid";
         } else validatePassword(password,2);
         
         if(name.value == ""){
-            validateMessage("errorMessage","name Vide",3);
+            validateMessage("errorMessage","Name cannot be empty. Please enter a valid Name.",3);
             name.style.border="red 1px solid";
         } else validatePassword(name,3);
     }
@@ -113,7 +113,7 @@ function validateEmail(Email){
         document.getElementById("errorMessage1").style.opacity='0';
         return true;
     }else{
-        validateMessage("errorMessage","email invalid",1);
+        validateMessage("errorMessage","Invalid email address. Please enter a valid email.",1);
         Email.style.border="red 1px solid";
         return false;
     }
