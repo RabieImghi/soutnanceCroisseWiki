@@ -48,7 +48,6 @@ Class ItemsController{
             }else{
                 $imageName='deafult.jpeg';
             }
-            
             if($title !="" && $content!="" && $category !='null' && $error==true){
                 $title = htmlspecialchars($title, ENT_QUOTES,'UTF-8');
                 $content = htmlspecialchars($content, ENT_QUOTES,'UTF-8');
@@ -62,7 +61,9 @@ Class ItemsController{
                 }
                 $views->userItemsAdmin();
             }else{
-                
+                if($title =="") $_SESSION["errorMessage"]="Title is required. Please provide a title for the Item.";
+                if($content =="") $_SESSION["errorMessage"]="Content is required. Please provide a content for the Item.";
+                if($category =="null") $_SESSION["errorMessage"]="Category is required. Please select a category for the Item.";
                 $views->userItemsAdmin();
             }
         }
