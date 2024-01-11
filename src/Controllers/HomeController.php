@@ -39,6 +39,7 @@ Class HomeController{
         }
         $data['categorys']=Category::getAllCategory("n");
         $data['tagsWikis']=Tage::getAllTags();
+        $data['csrf_token'] = HomeController::generateCSRFToken();
         Controller::render("admin/itemAuthor",$data);
     }
     public function searchItemsUsre(){
@@ -49,5 +50,13 @@ Class HomeController{
             $data['wikis'][]=WikiTags::getWikisTags($item['wikiID']);
         }
         Controller::render("user/search",$data);
+    }
+    public static function generateCSRFToken() {
+        $token = bin2hex(random_bytes(32)); 
+        $_SESSION['csrf_token']=$token; 
+        return $token;
+    }
+    public static function error404(){
+        Controller::render("error404");
     }
 }

@@ -1,5 +1,6 @@
 <?php
 namespace App;
+use App\Controllers\HomeController;
 class Route{
     public $routes = [];
     
@@ -21,6 +22,8 @@ class Route{
             $action = $this->routes[$method][$path]['action'];
             $controller = new $controller();
             $controller->$action();
+        }else{
+            HomeController::error404();
         }
     }
 }

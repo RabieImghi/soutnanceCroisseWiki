@@ -17,12 +17,13 @@ ob_start();
             </div>
             <div class="modal-body">
                 <form method="POST" enctype="multipart/form-data" action="<?=$_ENV['APP_URL']."/userItems"?>">
+                    <input type="hidden" name="csrf_token" value="<?=$csrf_token?>" >
                     <input type="text" name="title" class="form-control mt-3" placeholder="Item Name">
 
                     <input type="text" name="content" class="form-control mt-3" placeholder="Item Content">
 
                     <select name="category" id="" class="form-control mt-3">
-                      <option value="null" disabled selected>choose category</option>
+                      <option value="null" selected>choose category</option>
                       <?php
                       foreach($categorys as $category) {
                         ?>
@@ -67,6 +68,7 @@ ob_start();
     </thead>
     <tbody id='tableBody'>
       <?php 
+      if(!empty($items))
       for($i=0;$i<count($items);$i++){
         ?>
       <tr>
@@ -79,9 +81,10 @@ ob_start();
         <td>
           <p class="fw-normal mb-1">
             <?php 
+            if(!empty($wikis[$i]))
             for($j=0;$j<count($wikis[$i]);$j++){
-              echo "#".$wikis[$i][$j]['nameT']." ";
-            }
+              echo "<span class='bg-dark text-white ps-1 px-1 pb-1 rounded-1'>#".$wikis[$i][$j]['nameT']."</span> ";
+            }else echo "<span class='text-center fw-bold text-secondary'>No Tags</span>";
             ?>
           </p>
         </td>
@@ -152,6 +155,9 @@ ob_start();
         </td>
       </tr>
       <?php
+      }
+      else{
+        echo "<tr><td class='text-center fw-bold text-secondary p-5 h3' colspan='4'>No Items</td></tr>";
       }
       ?>
     </tbody>
