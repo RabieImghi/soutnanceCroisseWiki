@@ -59,6 +59,7 @@ Class ItemsController{
                         $tagWiki->addWikiTags();
                     }
                 }
+                $_SESSION['succesAdd']="ok";
                 $views->userItemsAdmin();
             }else{
                 if($title =="") $_SESSION["errorMessage"]="Title is required. Please provide a title for the Item.";

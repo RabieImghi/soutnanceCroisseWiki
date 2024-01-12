@@ -68,6 +68,7 @@ ob_start();
             var url ="/soutCrois/public/searchItemsUsre?type="+type+"&value="+input;
             const xhttp = new XMLHttpRequest();
             xhttp.onload = function() {
+                if(xhttp.readyState==4 && xhttp.status==200)
                 document.getElementById('bodySection').innerHTML=this.responseText;
             }
             xhttp.open("GET",url,true);

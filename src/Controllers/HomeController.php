@@ -60,7 +60,9 @@ Class HomeController{
         $_SESSION['csrf_token']=$token; 
         return $token;
     }
-    public static function error404(){
+    public static function error404() {
+        http_response_code(404);
         Controller::render("error404");
     }
+    
 }

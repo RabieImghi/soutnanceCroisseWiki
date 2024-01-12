@@ -35,7 +35,7 @@ ob_start();
 
                     <div class="mt-3">
                       <span style="margin-left: 5px;">Choose Your Tags : </span><br><br>
-                      <select class="form-control" id="multiple-select-clear-field" name="Tags[]" data-placeholder="Choose Your Tages" multiple>
+                      <select class="form-control select2"  name="Tags[]" data-placeholder="Choose Your Tages" multiple>
                         <?php
                         foreach($tagsWikis as $tagWiki) {
                           ?>
@@ -124,7 +124,7 @@ ob_start();
 
                         <div class="mt-3">
                           <span style="margin-left: 5px;">Choose Your Tags : </span><br><br>
-                          <select class="form-control" id="multiple-select-clear-field" name="Tags[]" data-placeholder="Choose Your Tages" multiple>
+                          <select class="form-control select2"  name="Tags[]" data-placeholder="Choose Your Tages" multiple>
                           <?php
                           foreach($tagsWikis as $tagWiki) {
                             ?>
@@ -163,18 +163,32 @@ ob_start();
     </tbody>
 </table>
 <?php
-if(isset($_SESSION["errorMessage"])) {
+  if(isset($_SESSION["errorMessage"])) {
+      echo "
+      <script>
+          document.addEventListener('DOMContentLoaded', function() {
+              Swal.fire({
+                  icon: 'error',
+                  title: 'Oops...',
+                  text: '" . addslashes($_SESSION["errorMessage"]) . "',
+              });
+          });
+      </script>";
+  }
+  if(isset( $_SESSION["succesAdd"])) {
     echo "
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: '" . addslashes($_SESSION["errorMessage"]) . "',
-            });
+          Swal.fire({
+            title: 'saved!',
+            text: 'Your Item has been saved.',
+            icon: 'success',
+            timer: 1500,
+            showConfirmButton: false,
+          });
         });
     </script>";
-}
+  }
 ?>
 <script>
   function deletItems(id,urlImage){
@@ -205,6 +219,8 @@ if(isset($_SESSION["errorMessage"])) {
 }
 </script>
 <?php 
+unset($_SESSION["errorMessage"]);
+unset($_SESSION["succesAdd"]);
 $content=ob_get_clean();
 include "../views/admin/header.php";
 ?>
