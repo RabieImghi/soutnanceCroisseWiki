@@ -3,10 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>Admin</title>
     <link href="assets/admin/assets/img/favicon.png" rel="icon">
     <link href="assets/admin/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
     <link rel="stylesheet" href="assets/admin/assets/style.css">
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="/path/to/tinymce.min.js"></script>
     <!-- select 2 CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" />
@@ -118,6 +120,8 @@
             <?=$content?>
         </section>
     </main>
+    
+
     <!-- select 2 CDN -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.0/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.full.min.js"></script>

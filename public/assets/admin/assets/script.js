@@ -17,3 +17,9 @@ document.querySelectorAll('.select2').forEach(function(selectElement) {
         allowClear: true,
     });
 });
+
+$('.tiny').each(function(index, element) {
+    tinymce.init({
+        selector: 'textarea.' + element.className.split(' ').join('.'),
+    });
+});

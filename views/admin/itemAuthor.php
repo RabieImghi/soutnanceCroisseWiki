@@ -19,8 +19,10 @@ ob_start();
                 <form method="POST" enctype="multipart/form-data" action="<?=$_ENV['APP_URL']."/userItems"?>">
                     <input type="hidden" name="csrf_token" value="<?=$csrf_token?>" >
                     <input type="text" name="title" class="form-control mt-3" placeholder="Item Name">
+                    <div class="mt-3">
+                    <textarea type="text" name="content" rows="6" class="form-control mt-3 tiny" placeholder="Item Content"></textarea>
 
-                    <input type="text" name="content" class="form-control mt-3" placeholder="Item Content">
+                    </div>
 
                     <select name="category" id="" class="form-control mt-3">
                       <option value="null" selected>choose category</option>
@@ -109,7 +111,7 @@ ob_start();
                     <form method="POST" enctype="multipart/form-data" action="<?=$_ENV['APP_URL']."/updateItems"?>">
                         <input type="text" name="title" value="<?=$items[$i]['title']?>" class="form-control mt-3" placeholder="Item Name">
 
-                        <input type="text" name="content" value="<?=$items[$i]['content']?>" class="form-control mt-3" placeholder="Item Content">
+                        <textarea type="text"  name="content" class="form-control mt-3 tiny" rows="6" placeholder="Item Content"><?=$items[$i]['content']?></textarea>
 
                         <select name="category" id="" class="form-control mt-3">
                           <option value="null" disabled selected>choose category</option>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>User</title>
     <link href="assets/user/assets/img/favicon.png" rel="icon">
     <link href="assets/user/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
     <link rel="stylesheet" href="assets/user/assets/style.css">
