@@ -109,46 +109,47 @@ ob_start();
                 </div>
                 <div class="modal-body">
                     <form method="POST" enctype="multipart/form-data" action="<?=$_ENV['APP_URL']."/updateItems"?>">
-                        <input type="text" name="title" value="<?=$items[$i]['title']?>" class="form-control mt-3" placeholder="Item Name">
+                      <input type="hidden" name="csrf_token" value="<?=$csrf_token?>" >
+                      <input type="text" name="title" value="<?=$items[$i]['title']?>" class="form-control mt-3" placeholder="Item Name">
 
-                        <textarea type="text"  name="content" class="form-control mt-3 tiny" rows="6" placeholder="Item Content"><?=$items[$i]['content']?></textarea>
+                      <textarea type="text"  name="content" class="form-control mt-3 tiny" rows="6" placeholder="Item Content"><?=$items[$i]['content']?></textarea>
 
-                        <select name="category" id="" class="form-control mt-3">
-                          <option value="null" disabled selected>choose category</option>
-                          <?php
-                          foreach($categorys as $category) {
-                            ?>
-                            <option value="<?=$category['categoryID']?>" <?php if($category['categoryID']==$items[$i]['categoryID']) echo 'selected'; ?>><?=$category['nameC']?></option>
-                            <?php
-                          }
+                      <select name="category" id="" class="form-control mt-3">
+                        <option value="null" disabled selected>choose category</option>
+                        <?php
+                        foreach($categorys as $category) {
                           ?>
+                          <option value="<?=$category['categoryID']?>" <?php if($category['categoryID']==$items[$i]['categoryID']) echo 'selected'; ?>><?=$category['nameC']?></option>
+                          <?php
+                        }
+                        ?>
+                      </select>
+
+                      <div class="mt-3">
+                        <span style="margin-left: 5px;">Choose Your Tags : </span><br><br>
+                        <select class="form-control select2"  name="Tags[]" data-placeholder="Choose Your Tages" multiple>
+                        <?php
+                        foreach($tagsWikis as $tagWiki) {
+                          ?>
+                          <option value="<?=$tagWiki['tagID']?>" 
+                          <?php
+                            for($j=0;$j<count($wikis[$i]);$j++){
+                              if($wikis[$i][$j]['tagID']==$tagWiki['tagID']) echo "selected"; 
+                            }
+                            
+                          ?>><?=$tagWiki['nameT']?></option>
+                          <?php
+                        }
+                        ?>
                         </select>
+                      </div>
+                      <input type="hidden" name='urlimage' value='<?=$items[$i]['urlImage']?>'>
+                      <input type="file" name='photo' class="form-control mt-3" accept=".jpg, .png, .jpeg">
 
-                        <div class="mt-3">
-                          <span style="margin-left: 5px;">Choose Your Tags : </span><br><br>
-                          <select class="form-control select2"  name="Tags[]" data-placeholder="Choose Your Tages" multiple>
-                          <?php
-                          foreach($tagsWikis as $tagWiki) {
-                            ?>
-                            <option value="<?=$tagWiki['tagID']?>" 
-                            <?php
-                              for($j=0;$j<count($wikis[$i]);$j++){
-                                if($wikis[$i][$j]['tagID']==$tagWiki['tagID']) echo "selected"; 
-                              }
-                              
-                            ?>><?=$tagWiki['nameT']?></option>
-                            <?php
-                          }
-                          ?>
-                          </select>
-                        </div>
-                        <input type="hidden" name='urlimage' value='<?=$items[$i]['urlImage']?>'>
-                        <input type="file" name='photo' class="form-control mt-3" accept=".jpg, .png, .jpeg">
-
-                        <div class="button mt-3 mb-3 d-flex gap-2 justify-content-end">
-                            <button type="submit" name="idWiki" value="<?=$items[$i]['wikiID']?>" class="btn btn-outline-success">Add</button>
-                            <button type="reset"  data-bs-dismiss="modal" class="btn btn-outline-dark">Close</button>
-                        </div>
+                      <div class="button mt-3 mb-3 d-flex gap-2 justify-content-end">
+                          <button type="submit" name="idWiki" value="<?=$items[$i]['wikiID']?>" class="btn btn-outline-success">Add</button>
+                          <button type="reset"  data-bs-dismiss="modal" class="btn btn-outline-dark">Close</button>
+                      </div>
                     </form>
                 </div>
               </div>
