@@ -7,7 +7,7 @@
     <link href="assets/admin/assets/img/favicon.png" rel="icon">
     <link href="assets/admin/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
     <link rel="stylesheet" href="assets/admin/assets/style.css">
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/1c5s0mdcwj1qsc77lpug9g36xlzg8ph0rpic841d86bg5rwu/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script src="/path/to/tinymce.min.js"></script>
     <!-- select 2 CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />

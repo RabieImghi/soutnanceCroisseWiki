@@ -11,6 +11,7 @@ aside{
     width: 250px !important;
     box-shadow: 2px 1px 30px rgba(211, 211, 211, 0.501);
     min-height: 80vh;
+    z-index: 100000000 !important;
 }
 section {
     width: 100% !important;
@@ -103,5 +104,8 @@ h2{
     }
     #asideBar.collapsed .nav-link span.ml-2{
         display: inline !important;
+    }
+    .cataNameMobil{
+        display: none !important;
     }
 }

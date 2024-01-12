@@ -11,8 +11,8 @@ ob_start();
       <tr>
         <th>Items Name </th>
         <th>User Name</th>
-        <th>Tags</th>
-        <th>Category Name</th>
+        <th class="cataNameMobil">Tags</th>
+        <th class='cataNameMobil'>Category Name</th>
         <th>Actions</th>
       </tr>
     </thead>
@@ -30,7 +30,7 @@ ob_start();
         <td>
           <p class="fw-normal mb-1 bg-blue-cs"><?=$items[$i]['username']?></p>
         </td>
-        <td>
+        <td class='cataNameMobil'>
           <p class="fw-normal mb-1" style="color: #012970 !important;">
             <?php 
             for($j=0;$j<count($wikis[$i]);$j++){
@@ -39,7 +39,7 @@ ob_start();
             ?>
           </p>
         </td>
-        <td>
+        <td class ='cataNameMobil'>
           <p class="fw-normal mb-1"><?=$items[$i]['nameC']?></p>
         </td>
         <td >
