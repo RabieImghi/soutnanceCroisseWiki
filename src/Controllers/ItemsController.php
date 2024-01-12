@@ -17,7 +17,7 @@ Class ItemsController{
         }
         $data['categorys']=Category::getAllCategory("n");
         $data['tagsWikis']=Tage::getAllTags();
-        Controller::render("admin/item",$data);
+        Controller::render("admin/items/item",$data);
     }
     public function addNewItem(){
         AuthMiddlewareController::handle();
@@ -85,7 +85,7 @@ Class ItemsController{
             }
             $data['categorys']=Category::getAllCategory("n");
             $data['tagsWikis']=Tage::getAllTags();
-            Controller::render("admin/deletView", $data);
+            Controller::render("admin/items/deletView", $data);
         }
     }
     public function updateItem(){

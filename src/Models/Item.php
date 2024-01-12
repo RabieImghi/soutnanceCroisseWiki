@@ -27,8 +27,8 @@ Class Item{
     }
     public function updateItem($idWiki){
         $db = Database::getConnection();
-        $stmt=$db->prepare("UPDATE wikis SET title=?, content=?, userID=?, categoryID=?, urlImage=?, deletedAt=?, updateAt=? WHERE wikiID =?");
-        $stmt->execute([$this->title,$this->content,$this->userID,$this->categoryID,$this->urlImage,$this->deletedAt,$this->updateAt,$idWiki]);
+        $stmt=$db->prepare("UPDATE wikis SET title=?, content=?, userID=?, categoryID=?, urlImage=?, updateAt=? WHERE wikiID =?");
+        $stmt->execute([$this->title,$this->content,$this->userID,$this->categoryID,$this->urlImage,$this->updateAt,$idWiki]);
         return true;
     }
     public static function getAllItemUser($role=null){
@@ -39,7 +39,7 @@ Class Item{
             $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
             return $result;
         }else{
-            $stmt=$db->prepare("SELECT * FROM wikis NATURAL JOIN categories WHERE wikis.userID =? AND deletedAt IS NULL");
+            $stmt=$db->prepare("SELECT * FROM wikis NATURAL JOIN categories WHERE wikis.userID =? ");
             $stmt->execute([$_SESSION['id_user']]);
             $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
             return $result;

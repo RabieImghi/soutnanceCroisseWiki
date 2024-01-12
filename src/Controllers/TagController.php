@@ -7,7 +7,7 @@ Class TagController{
     public function getAllTags(){
         AuthMiddlewareController::handle();
         $data['allTagss']=Tage::getAllTags();
-        Controller::render("admin/tags",$data);
+        Controller::render("admin/tags/tags",$data);
     }
     public function addNewTag(){
         AuthMiddlewareController::handle();
@@ -21,7 +21,7 @@ Class TagController{
         $id=$_GET['id'];
         Tage::deletTag($id);
         $data['allTagss']=Tage::getAllTags();
-        Controller::render("admin/deletTagView",$data);
+        Controller::render("admin/tags/deletTagView",$data);
     }
     public function updateTags(){
         AuthMiddlewareController::handle();

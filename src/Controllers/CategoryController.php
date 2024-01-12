@@ -7,7 +7,7 @@ Class CategoryController{
     public function getAllCategory(){
         AuthMiddlewareController::handle();
         $data['categorys']=Category::getAllCategory('n');
-        Controller::render("admin/category",$data);
+        Controller::render("admin/category/category",$data);
     }
     public function addNewCategory(){
         AuthMiddlewareController::handle();
@@ -21,7 +21,7 @@ Class CategoryController{
         $id=$_GET['id'];
         Category::deletCatgory($id);
         $data['categorys']=Category::getAllCategory('n');
-        Controller::render("admin/deletCatView",$data);
+        Controller::render("admin/category/deletCatView",$data);
     }
     public function updateCategory(){
         AuthMiddlewareController::handle();
