@@ -11,7 +11,7 @@ aside{
     width: 250px !important;
     box-shadow: 2px 1px 30px rgba(211, 211, 211, 0.501);
     min-height: 80vh;
-    z-index: 100000000 !important;
+    z-index: 1 !important;
 }
 section {
     width: 100% !important;

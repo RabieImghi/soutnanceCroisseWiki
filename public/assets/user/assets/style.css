@@ -1,3 +1,6 @@
+*::-webkit-scrollbar{
+    display: none;
+}
 .togl_menu {
     display: none;
 }
@@ -37,10 +40,7 @@ aside{
 h5 span, .blueColor{
     color: #6102fb !important;
 }
-.textHero h1{
-    font-size: 80px;
-    font-weight: bold;
-} 
+
 .textHero h1 span{
     color: #6102fb;
 }
@@ -63,8 +63,8 @@ h5 span, .blueColor{
     width: 600px !important;
 }
 .wikis .textHero{
-    background-color: rgba(201, 192, 255, 0.254);
-    height: 50vh !important;
+    background-color: rgba(215, 209, 246, 0.146);
+    height: 260px !important;
 }
 
 .blue-move{
@@ -80,7 +80,7 @@ h5 span, .blueColor{
     width: 70% !important;
 }
 .imageWikidetails img{
-    width: 400px !important;
+    width: 600px !important;
 }
 @media screen and (max-width : 1000px) {
     .textHero h1{

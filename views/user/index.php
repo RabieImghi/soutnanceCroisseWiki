@@ -15,8 +15,8 @@ ob_start();
             <img src="assets/user/assets/img/WikiWorld.png" style="width: 100%;"  alt="">
         </div>
     </section>
-    <h1 class="mb-3 mt-5 ml-2 h2 fw-bold titleSection">Our services</h1><hr>
-    <section class="services p-4 d-flex flex-wrap gap-4 justify-content-between align-items-center">
+    <h1 class="mb-3 mt-5  h2 fw-bold titleSection">Our services</h1><hr>
+    <section class="services d-flex flex-wrap gap-4 justify-content-between align-items-center">
         <div class="card shadow" style="width: 18rem;">
             <img src="assets/user/assets/img/services.jpg" class="card-img-top" alt="...">
             <div class="card-body d-flex flex-column align-items-center">
@@ -39,25 +39,25 @@ ob_start();
             </div>
         </div>
     </section>
-    <h1 class="mb-3 mt-5 ml-2 h2 fw-bold titleSection">Last  Wiks</h1><hr>
-    <section class="LasWikis">
+    <h1 class="mb-3 mt-5  h2 fw-bold titleSection">Last  Wiks</h1><hr>
+    <section class="LasWikis m-2">
         <?php 
         for($i=0;$i<count($items);$i++){
         ?>
-        <div class="wikis row mb-3">
+        <div class="wikis row mb-5 shadow " style="height: 260px" >
             <?php
             if($i%2== 0){
                 ?>
-                <div class="image col-6" style='height:360px !important; overflow:hidden'>
-                    <img src="assets/uploads/<?=$items[$i]["urlImage"]?>" style="height: 360px"  alt="">
+                <div class="image col-6 p-0" style='height:260px !important; overflow:hidden'>
+                    <img src="assets/uploads/<?=$items[$i]["urlImage"]?>" style="height: 260px"  alt="">
                 </div>
-                <div class="textHero col-6 p-4">
-                    <h1 class=""><span><?=$items[$i]["title"]?></span></h1>
+                <div class="textHero col-6 shadow" >
+                    <h1 ><span class="h1 fw-bold"><?=$items[$i]["title"]?></span></h1>
                     <p class="fw-bold"> Category : <span class="blueColor"><?=$items[$i]["nameC"]?></span></p>
                     <p class="fw-bold">Tages : <span class="blueColor">
                     <?php 
                         for($j=0;$j<count($wikis[$i]);$j++){
-                            echo $wikis[$i][$j]['nameT']."/ ";
+                            echo "#".$wikis[$i][$j]['nameT']." / ";
                         }
                         ?>
                     </span></p>
@@ -66,20 +66,20 @@ ob_start();
                 <?php
             }else{
                 ?>
-                <div class="textHero col-6 p-4">
-                    <h1 class=""><span><?=$items[$i]["title"]?></span></h1>
+                <div class="textHero col-6 shadow">
+                    <h1 class=""><span class="h1 fw-bold"><?=$items[$i]["title"]?></span></h1>
                     <p class="fw-bold"> Category : <span class="blueColor"><?=$items[$i]["nameC"]?></span></p>
                     <p class="fw-bold">Tages : <span class="blueColor">
                         <?php 
                         for($j=0;$j<count($wikis[$i]);$j++){
-                            echo $wikis[$i][$j]['nameT']."/ ";
+                            echo "#".$wikis[$i][$j]['nameT']." / ";
                         }
                         ?>
                     </span></p>
                     <a href="<?=$_ENV['APP_URL']."/detailItem?idItem=".$items[$i]["wikiID"]?>" class="btn butt btn-primary mt-2">More Details </a>
                 </div>
-                <div class="image col-6" style='height:360px !important; overflow:hidden'>
-                    <img src="assets/uploads/<?=$items[$i]["urlImage"]?>" style="height: 360px ;"  alt="">
+                <div class="image col-6 p-0 text-end" style='height:260px !important; overflow:hidden'>
+                    <img src="assets/uploads/<?=$items[$i]["urlImage"]?>" style="height: 260px ;"  alt="">
                 </div>
                 <?php
             }
@@ -89,8 +89,8 @@ ob_start();
         }
         ?>
     </section>
-    <h1 class="mb-3 mt-5 ml-2 h2 fw-bold titleSection">Last Category</h1><hr>
-    <section class="services p-4 d-flex flex-wrap gap-4 justify-content-between align-items-center">
+    <h1 class="mb-3 mt-5  h2 fw-bold titleSection">Last Category</h1><hr>
+    <section class="services d-flex flex-wrap gap-4 justify-content-between align-items-center">
         <?php 
         foreach($categorys as $category):
         ?>
