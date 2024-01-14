@@ -50,7 +50,7 @@ registre?.addEventListener('click', function (){
 
     if(email.value!="" && password.value != "" && name.value != ""){
         let res1 = validateEmail(email);
-        let res2 = validatePassword(password,3);
+        let res2 = validatePassword(password,2);
         let res3 = validatePassword(name,3);
         if(res1 && res2 && res3){
             const xhttp = new XMLHttpRequest();
