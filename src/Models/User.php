@@ -45,6 +45,10 @@ Class User{
         $countTags=$db->prepare("SELECT count(*) as total FROM tags");
         $countTags->execute();
         $data['countTags'] = $countTags->fetchAll(\PDO::FETCH_ASSOC)[0];
+        
+        $countUser=$db->prepare("SELECT count(*) as total FROM users");
+        $countUser->execute();
+        $data['countUser'] = $countUser->fetchAll(\PDO::FETCH_ASSOC)[0];
 
         return $data;
     }

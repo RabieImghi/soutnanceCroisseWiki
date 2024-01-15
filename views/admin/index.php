@@ -52,10 +52,29 @@ ob_start();
 
             <div class="d-flex align-items-center">
                 <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
-                    <i class="fas fa-chart-bar"></i>
+                    <i class="fas fa-tags"></i>
                 </div>
                 <div class="card_footr ml-2">
                     <h6><?=$statisticals['countTags']["total"]?></h6>
+                    <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+
+                </div>
+            </div>
+        </div>
+
+        </div>
+    </div>
+    <div class="shadow rounded-1">
+        <div class="card border-0 info-card sales-card">
+            <div class="card-body">
+            <h5 class="card-title">Total <span>| User</span></h5>
+
+            <div class="d-flex align-items-center">
+                <div class="icon icon-shape bg-primary text-white rounded-circle shadow">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="card_footr ml-2">
+                    <h6><?=$statisticals['countUser']["total"]?></h6>
                     <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
 
                 </div>
